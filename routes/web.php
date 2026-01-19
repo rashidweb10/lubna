@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\GalleryController;
 use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\FormController as BackendFormController;
 use App\Http\Controllers\Backend\ImportController;
+use App\Http\Controllers\Backend\VisitorController;
 
 //Frontend
 use App\Http\Controllers\FrontendController;
@@ -212,6 +213,11 @@ Route::prefix('backend')->group(function () {
     
     Route::middleware('auth.backend')->group(function () {
         Route::get('forms-by/{form_name}', [BackendFormController::class, 'index'])->name('forms.by');
+    });
+
+    Route::middleware('auth.backend')->group(function () {
+        Route::resource('visitors', VisitorController::class);
+        Route::post('visitors/bulk-delete', [VisitorController::class, 'bulkDelete'])->name('visitors.bulk-delete');
     });
 
     Route::middleware('auth.backend')->group(function () {

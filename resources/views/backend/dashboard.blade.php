@@ -96,7 +96,7 @@
         'name' => 'Visitors',
         'icon' => 'ti ti-world',
         'count' => $visitors,
-        'url' => '',
+        'url' => route('visitors.index'),
     ])   
 
     @include('backend.includes.dashboard-card', [
