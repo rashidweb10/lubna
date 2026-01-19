@@ -75,11 +75,17 @@
                                 <td>
                                     @if($row->url)
                                     <a href="{{ $row->url }}" target="_blank">
-                                    {{ text_limit($row->url, 40) }}
+                                    {{ text_limit($row->url, 25) }}
                                     </a>
                                     @endif
                                 </td>
-                                <td>{{ $row->referrer ?? 'N/A' }}</td>
+                                <td>
+                                    @if($row->referrer)
+                                    <a href="{{ $row->referrer }}" target="_blank">
+                                    {{ text_limit($row->referrer, 25) }}
+                                    </a>
+                                    @endif                                    
+                                </td>
                                 <td>{{ $row->device_type ?? 'N/A' }}</td>
                                 <td>{{ $row->browser ?? 'N/A' }}</td>
                                 <td>{{ $row->platform ?? 'N/A' }}</td>
