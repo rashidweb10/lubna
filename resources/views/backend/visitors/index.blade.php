@@ -72,7 +72,13 @@
                                 </td>
                                 <td>{{ $pageData->firstItem() + $index }}</td>
                                 <td>{{ $row->ip_address ?? 'N/A' }}</td>
-                                <td>{{ $row->url ?? 'N/A' }}</td>
+                                <td>
+                                    @if($row->url)
+                                    <a href="{{ $row->url }}" target="_blank">
+                                    {{ text_limit($row->url, 40) }}
+                                    </a>
+                                    @endif
+                                </td>
                                 <td>{{ $row->referrer ?? 'N/A' }}</td>
                                 <td>{{ $row->device_type ?? 'N/A' }}</td>
                                 <td>{{ $row->browser ?? 'N/A' }}</td>

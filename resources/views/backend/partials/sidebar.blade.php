@@ -142,6 +142,14 @@
                 <span class="menu-text"> Form Submissions </span>
             </a>
         </li>   
+
+        <li class="side-nav-item">
+            <a href="{{ route('visitors.index') }}" class="side-nav-link">
+                <span class="menu-icon"><i class="ti ti-world"></i></span>
+                <span class="menu-text"> Visitors </span>
+            </a>
+        </li> 
+
         <li class="side-nav-item">
             <a target="_blank" href="{{ url('') . '/command/optimize-clear?back=true' }}" class="side-nav-link text-danger fw-bold">
                 <span class="menu-icon"><i class="ti ti-refresh"></i></span>
