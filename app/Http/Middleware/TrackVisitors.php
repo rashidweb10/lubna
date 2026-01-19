@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\Visitor;
 use Illuminate\Support\Facades\Cache;
+use Jenssegers\Agent\Agent;
+use Illuminate\Support\Str;
 
 class TrackVisitors
 {
@@ -76,17 +78,17 @@ class TrackVisitors
 
     protected function trackVisitor(Request $request): void
     {
-        //$agent = new Agent();
+        $agent = new Agent();
         
         Visitor::create([
             'ip_address' => $request->ip(),
-            //'user_agent' => $request->userAgent(),
+            'user_agent' => $request->userAgent(),
             'url' => $request->fullUrl(),
             'method' => $request->method(),
             'referrer' => $request->header('referer'),
-            //'device_type' => $this->getDeviceType($agent),
-            // 'browser' => $agent->browser(),
-            // 'platform' => $agent->platform(),
+            'device_type' => $this->getDeviceType($agent),
+            'browser' => $agent->browser(),
+            'platform' => $agent->platform(),
             'company_id' => config('custom.school_id'),
         ]);
     }
