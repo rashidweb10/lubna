@@ -51,7 +51,7 @@
                     <div class="form-group mb-2">
                         <label for="layout" class="form-label">Layout <span class="text-danger">*</span></label>
                         @php
-                            $layouts = ['default', 'home', 'about', 'testimonials', 'faculties'];
+                            $layouts = ['default', 'home', 'about', 'services', 'highlights'];
                         @endphp
 
                         <select name="layout" class="form-select select2" required>
