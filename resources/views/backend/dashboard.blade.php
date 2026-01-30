@@ -35,33 +35,6 @@
             return $query->where('company_id', auth()->user()->company_id);
         })->count();
     }); 
-    
-    $coursesCount = Cache::remember('courses_count', 86400, function () {
-            return \App\Models\Course::count();
-    });
-
-
-    $courseCategoriesCount = Cache::remember('course_category_count', 86400, function () {
-            return \App\Models\CourseCategory::count();
-    });
-
-    $courseMaterialsCount = Cache::remember('course_material_count', 86400, function () {
-            return \App\Models\CourseMaterial::count();
-    });
-
-    $courseEnrolmentsCount = Cache::remember('course_enrolment_count', 86400, function () {
-            return \App\Models\CourseEnrolment::count();
-    });
-
-    $activeStudentsCount = Cache::remember('active_student_count', 86400, function () {
-            return \App\Models\User::where('role_id', 3)->where('is_active', 1)->count();
-    });
-
-    $inactiveStudentsCount = Cache::remember('inactive_student_count', 86400, function () {
-            return \App\Models\User::where('role_id', 3)->where('is_active', 0)->count();
-    });    
-   
-     
 @endphp
 
 <div class="page-title-head d-flex align-items-center gap-2">
@@ -97,48 +70,6 @@
         'icon' => 'ti ti-world',
         'count' => $visitors,
         'url' => route('visitors.index'),
-    ])   
-
-    @include('backend.includes.dashboard-card', [
-        'name' => 'courses',
-        'icon' => 'ti ti-books',
-        'count' => $coursesCount,
-        'url' => route('courses.index'),
-    ])   
-
-    @include('backend.includes.dashboard-card', [
-        'name' => 'course categories',
-        'icon' => 'ti ti-category',
-        'count' => $courseCategoriesCount,
-        'url' => route('course-categories.index'),
-    ])   
-
-    @include('backend.includes.dashboard-card', [
-        'name' => 'course materials',
-        'icon' => 'ti ti-file-text',
-        'count' => $courseMaterialsCount,
-        'url' => route('course-materials.index'),
-    ])  
-
-    @include('backend.includes.dashboard-card', [
-        'name' => 'course enrolments',
-        'icon' => 'ti ti-user-plus',
-        'count' => $courseEnrolmentsCount,
-        'url' => route('course-enrolments.index'),
-    ])   
-
-    @include('backend.includes.dashboard-card', [
-        'name' => 'active students',
-        'icon' => 'ti ti-user-check',
-        'count' => $activeStudentsCount,
-        'url' => route('students.index', ['status' => 1]),
-    ])
-
-    @include('backend.includes.dashboard-card', [
-        'name' => 'inactive students',
-        'icon' => 'ti ti-user-x',
-        'count' => $inactiveStudentsCount,
-        'url' => route('students.index', ['status' => 0]),
     ])
    
 </div>

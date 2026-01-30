@@ -8,10 +8,6 @@ use App\Http\Controllers\CommandController;
 use App\Http\Controllers\Backend\AuthController;
 use App\Http\Controllers\Backend\UploadController;
 use App\Http\Controllers\Backend\CompanyController;
-use App\Http\Controllers\Backend\CourseCategoryController;
-use App\Http\Controllers\Backend\CourseController;
-use App\Http\Controllers\Backend\CourseMaterialController;
-use App\Http\Controllers\Backend\CourseEnrolmentController;
 use App\Http\Controllers\Backend\StudentController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BlogCategoryController;
@@ -64,59 +60,9 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 
 Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
 
-Route::get('/products', [FrontendController::class, 'products'])->name('products');
-
 Route::get('/contact-us', [FrontendController::class, 'contact'])->name('contact');
-Route::get('/courses', [FrontendController::class, 'courses'])->name('courses');
-Route::get('/faculties', [FrontendController::class, 'faculties'])->name('faculties');
-Route::get('/testimonials', [FrontendController::class, 'testimonials'])->name('testimonials');
-
-Route::get('/blog', [FrontendController::class, 'blogs'])->name('blog.index');
-Route::get('/blog/{slug}', [FrontendController::class, 'blogDetail'])->name('blog.show');
 
 Route::post('/submit-form', [FormController::class, 'submit'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('form.submit');
-
-// Frontend Authentication Routes
-Route::prefix('auth')->group(function () {
-    // Login
-    Route::get('/login', [FrontendAuthController::class, 'showLoginForm'])->name('auth.login');
-    Route::get('/login', [FrontendAuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [FrontendAuthController::class, 'login'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.login');
-    
-    // Registration
-    Route::get('/register', [FrontendAuthController::class, 'showRegisterForm'])->name('auth.register');
-    Route::post('/register', [FrontendAuthController::class, 'register'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.register');
-    
-    // OTP Verification
-    Route::get('/verify-otp', [FrontendAuthController::class, 'showVerifyOtpForm'])->name('auth.verify-otp');
-    Route::post('/verify-otp', [FrontendAuthController::class, 'verifyOtp'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.verify-otp');
-    Route::post('/resend-otp', [FrontendAuthController::class, 'resendOtp'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.resend-otp');
-    
-    // Forgot Password
-    Route::get('/forgot-password', [FrontendAuthController::class, 'showForgotPasswordForm'])->name('auth.forgot-password');
-    Route::post('/forgot-password', [FrontendAuthController::class, 'forgotPassword'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.forgot-password');
-    
-    // Reset Password
-    Route::get('/reset-password', [FrontendAuthController::class, 'showResetPasswordForm'])->name('auth.reset-password');
-    Route::post('/reset-password', [FrontendAuthController::class, 'resetPassword'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.reset-password');
-    Route::post('/resend-password-reset-otp', [FrontendAuthController::class, 'resendPasswordResetOtp'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.resend-password-reset-otp');
-    
-    // Google OAuth
-    Route::get('/google', [FrontendAuthController::class, 'redirectToGoogle'])->name('auth.google');
-    Route::get('/google/callback', [FrontendAuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
-    
-    // Profile (Authenticated)
-    Route::middleware('auth')->group(function () {
-        Route::get('/dashboard', [FrontendAuthController::class, 'dashboard'])->name('auth.dashboard');
-        Route::get('/profile', [FrontendAuthController::class, 'profile'])->name('auth.profile');
-        Route::put('/profile', [FrontendAuthController::class, 'updateProfile'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.profile.update');
-        Route::get('/change-password', [FrontendAuthController::class, 'showChangePasswordForm'])->name('auth.change-password');
-        Route::post('/change-password', [FrontendAuthController::class, 'changePassword'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('auth.change-password.store');
-        Route::get('/enrolled-courses', [FrontendAuthController::class, 'enrolledCourses'])->name('auth.enrolled-courses');
-        Route::get('/enrolled-courses/{course}', [FrontendAuthController::class, 'enrolledCourseShow'])->name('auth.enrolled-courses.show');
-        Route::post('/logout', [FrontendAuthController::class, 'logout'])->name('auth.logout');
-    });
-});
 
 // Group routes under the 'backend' prefix
 Route::prefix('backend')->group(function () {
@@ -162,54 +108,7 @@ Route::prefix('backend')->group(function () {
 
     Route::middleware('auth.backend')->group(function () {
         Route::resource('pages', PageController::class);
-    });  
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('course-categories', CourseCategoryController::class);
-    });  
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('courses', CourseController::class);
-        Route::post('courses/bulk-delete', [CourseController::class, 'bulkDelete'])->name('courses.bulk-delete');
-        Route::post('courses/bulk-active', [CourseController::class, 'bulkActive'])->name('courses.bulk-active');
-        Route::post('courses/bulk-inactive', [CourseController::class, 'bulkInactive'])->name('courses.bulk-inactive');
-    });  
-
-    // AJAX route to get courses by category (used in Course Materials page filter)
-    Route::middleware('auth.backend')->get('ajax/courses-by-category', [CourseController::class, 'getByCategory'])->name('courses.by-category');
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('course-materials', CourseMaterialController::class);
-        Route::post('course-materials/bulk-delete', [CourseMaterialController::class, 'bulkDelete'])->name('course-materials.bulk-delete');
-        Route::post('course-materials/bulk-active', [CourseMaterialController::class, 'bulkActive'])->name('course-materials.bulk-active');
-        Route::post('course-materials/bulk-inactive', [CourseMaterialController::class, 'bulkInactive'])->name('course-materials.bulk-inactive');
-    });  
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('course-enrolments', CourseEnrolmentController::class);
-        Route::post('course-enrolments/bulk-delete', [CourseEnrolmentController::class, 'bulkDelete'])->name('course-enrolments.bulk-delete');
-        Route::post('course-enrolments/bulk-active', [CourseEnrolmentController::class, 'bulkActive'])->name('course-enrolments.bulk-active');
-        Route::post('course-enrolments/bulk-inactive', [CourseEnrolmentController::class, 'bulkInactive'])->name('course-enrolments.bulk-inactive');
-    });  
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('students', StudentController::class);
-        Route::post('students/bulk-delete', [StudentController::class, 'bulkDelete'])->name('students.bulk-delete');
-        Route::post('students/bulk-active', [StudentController::class, 'bulkActive'])->name('students.bulk-active');
-        Route::post('students/bulk-inactive', [StudentController::class, 'bulkInactive'])->name('students.bulk-inactive');
-        Route::get('students/login-as/{id}', [StudentController::class, 'loginAsStudent'])->name('students.login-as');
-    });
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('blog-categories', BlogCategoryController::class);
-    });
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::resource('blogs', BlogController::class);
-        Route::post('blogs/bulk-delete', [BlogController::class, 'bulkDelete'])->name('blogs.bulk-delete');
-        Route::post('blogs/bulk-active', [BlogController::class, 'bulkActive'])->name('blogs.bulk-active');
-        Route::post('blogs/bulk-inactive', [BlogController::class, 'bulkInactive'])->name('blogs.bulk-inactive');
-    });
+    });   
     
     Route::middleware('auth.backend')->group(function () {
         Route::get('forms-by/{form_name}', [BackendFormController::class, 'index'])->name('forms.by');
@@ -219,16 +118,6 @@ Route::prefix('backend')->group(function () {
         Route::resource('visitors', VisitorController::class);
         Route::post('visitors/bulk-delete', [VisitorController::class, 'bulkDelete'])->name('visitors.bulk-delete');
     });
-
-    Route::middleware('auth.backend')->group(function () {
-        Route::get('/import-course-categories', [ImportController::class, 'importCourseCategories']);
-        Route::get('/import-courses', [ImportController::class, 'importCourses']);
-        Route::get('/import-course-enrolments', [ImportController::class, 'importCourseEnrolments']);
-        Route::get('/import-course-materials', [ImportController::class, 'importCourseMaterials']);
-        Route::get('/import-users', [ImportController::class, 'importUsers']);
-        Route::get('/import-course-materials-images', [ImportController::class, 'importCourseMaterialImages']);
-    });
-  
 });
 
 

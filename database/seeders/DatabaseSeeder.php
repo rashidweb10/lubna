@@ -16,14 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CompanySeeder::class,
             RoleSeeder::class,
-            TeamCategoriesSeeder::class,
-            TeamsSeeder::class,
-            //CampusSeeder::class,
-            //GallerySeeder::class,
             PageSeeder::class,
-            TinyMCEKeysSeeder::class,
-            BlogCategorySeeder::class,
-            BlogSeeder::class,
         ]);        
     }
 }
