@@ -60,15 +60,21 @@
                         <label for="company-phone" class="form-label">Phone <span class="text-danger">*</span></label>
                         <input type="text" id="company-phone" name="phone" value="{{ old('phone', $pageData->phone) }}" class="form-control" placeholder="" required>
                     </div>
+
                     <div class="mb-3 form-group">
+                        <label for="meta-Follow" class="form-label">Follow</label>
+                        <input type="text" class="form-control" id="meta-Follow" name="meta[follow_text]" value="{{ old('meta.follow_text', $pageData->meta->where('meta_key', 'follow_text')->first()->meta_value ?? '') }}" placeholder="Enter Follow Text">
+                    </div>
+
+                    {{-- <div class="mb-3 form-group">
                         <label for="company-address" class="form-label">Address <span class="text-danger">*</span></label>
                         <input type="text" id="company-address" name="address" value="{{ old('address', $pageData->address) }}" class="form-control" placeholder="e.g : 123 Main St, City, Country" required>
-                    </div>                   
-                    <div class="mb-3 form-group">
+                    </div> --}}
+                    {{-- <div class="mb-3 form-group">
                         <label for="company-google-map" class="form-label">Google Map Embed</label>
                         <textarea class="form-control" id="company-google-map" name="google_map" rows="3" placeholder="Paste Google Map iframe">{{ old('google_map', $pageData->google_map) }}</textarea>
-                    </div>
-                    <div class="mb-2 form-group">
+                    </div> --}}
+                    {{-- <div class="mb-2 form-group">
                         <label for="company-brochure" class="form-label">{{ __('Brochure') }}</label>
                         <div class="input-group" data-toggle="aizuploader" data-type="document" data-multiple="false">
                             <div class="input-group-prepend">
@@ -78,7 +84,7 @@
                             <input type="hidden" id="company-brochure" name="meta[brochure]" value="{{ old('meta.brochure', $pageData->meta->where('meta_key', 'brochure')->first()->meta_value ?? '') }}" class="selected-files">
                         </div>
                         <div class="file-preview box sm"></div>
-                    </div>                    
+                    </div> --}}
                 </div>
             </div>
             
@@ -98,10 +104,10 @@
                         <label for="meta-instagram" class="form-label">Instagram URL</label>
                         <input type="url" class="form-control" id="meta-instagram" name="meta[instagram_url]" value="{{ old('meta.instagram_url', $pageData->meta->where('meta_key', 'instagram_url')->first()->meta_value ?? '') }}" placeholder="Enter Instagram URL">
                     </div>
-                    <div class="mb-3 form-group">
+                    {{-- <div class="mb-3 form-group">
                         <label for="meta-x" class="form-label">X URL</label>
                         <input type="url" class="form-control" id="meta-x" name="meta[x_url]" value="{{ old('meta.x_url', $pageData->meta->where('meta_key', 'x_url')->first()->meta_value ?? '') }}" placeholder="Enter X URL">
-                    </div>
+                    </div> --}}
                     <div class="mb-3 form-group">
                         <label for="meta-linkedin" class="form-label">LinkedIn URL</label>
                         <input type="url" class="form-control" id="meta-linkedin" name="meta[linkedin_url]" value="{{ old('meta.linkedin_url', $pageData->meta->where('meta_key', 'linkedin_url')->first()->meta_value ?? '') }}" placeholder="Enter LinkedIn URL">
