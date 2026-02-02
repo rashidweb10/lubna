@@ -2066,6 +2066,7 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
                     e.preventDefault();
                     $(target).append(content);
                     AIZ.plugins.bootstrapSelect();
+                    initTextEditor();
                     AIZ.extra.addMoreSortable(target, $this);
                 });
             });
