@@ -417,6 +417,65 @@ if (!function_exists('get_setting')) {
 //     }
 // }
 
+if (!function_exists('renderMenu')) {
+    /**
+     * Render a menu by group slug
+     *
+     * @param string $menuGroupSlug
+     * @param string $ulClass
+     * @param string $liClass
+     * @param string $aClass
+     * @return string
+     */
+    function renderMenu($menuGroupSlug, $ulClass = 'navbar-nav', $liClass = 'nav-item', $aClass = 'nav-link') {
+        $menuItems = \App\Models\MenuItem::getMenuTree($menuGroupSlug);
+        return renderMenuItems($menuItems, $ulClass, $liClass, $aClass);
+    }
+}
+
+if (!function_exists('renderMenuItems')) {
+    /**
+     * Recursively render menu items
+     *
+     * @param \Illuminate\Support\Collection $menuItems
+     * @param string $ulClass
+     * @param string $liClass
+     * @param string $aClass
+     * @return string
+     */
+    function renderMenuItems($menuItems, $ulClass, $liClass, $aClass) {
+        if ($menuItems->isEmpty()) {
+            return '';
+        }
+
+        $html = '<ul class="' . $ulClass . '">';
+
+        foreach ($menuItems as $menuItem) {
+            $activeClass = request()->is(str_replace(url('/'), '', $menuItem->url) . '*') ? ' active' : '';
+            $iconHtml = $menuItem->icon ? '<i class="' . $menuItem->icon . ' me-2"></i>' : '';
+            
+            $html .= '<li class="' . $liClass . ($menuItem->hasChildren() ? ' dropdown' : '') . $activeClass . '">';
+            $html .= '<a href="' . $menuItem->url . '" class="' . $aClass . ($menuItem->hasChildren() ? ' dropdown-toggle' : '') . '" ';
+            if ($menuItem->hasChildren()) {
+                $html .= 'data-bs-toggle="dropdown" role="button" aria-expanded="false"';
+            }
+            $html .= '>';
+            $html .= $iconHtml . $menuItem->name;
+            $html .= '</a>';
+
+            if ($menuItem->hasChildren()) {
+                $html .= renderMenuItems($menuItem->children, 'dropdown-menu', 'dropdown-item', '');
+            }
+
+            $html .= '</li>';
+        }
+
+        $html .= '</ul>';
+
+        return $html;
+    }
+}
+
 if (!function_exists('makeImageThumbnail')) {
     function makeImageThumbnail($relativePath, $width = 150, $height = 150, $quality = 80) {
         try {

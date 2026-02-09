@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\PageController;
 use App\Http\Controllers\Backend\FormController as BackendFormController;
 use App\Http\Controllers\Backend\ImportController;
 use App\Http\Controllers\Backend\VisitorController;
+use App\Http\Controllers\Backend\MenuController;
 
 //Frontend
 use App\Http\Controllers\FrontendController;
@@ -117,6 +118,16 @@ Route::prefix('backend')->group(function () {
     Route::middleware('auth.backend')->group(function () {
         Route::resource('visitors', VisitorController::class);
         Route::post('visitors/bulk-delete', [VisitorController::class, 'bulkDelete'])->name('visitors.bulk-delete');
+    });
+
+    Route::middleware('auth.backend')->group(function () {
+        Route::get('/menus', [MenuController::class, 'index'])->name('backend.menus');
+        Route::post('/menus/group/save', [MenuController::class, 'saveGroup'])->name('backend.menus.group.save');
+        Route::post('/menus/group/delete', [MenuController::class, 'deleteGroup'])->name('backend.menus.group.delete');
+        Route::post('/menus/item/save', [MenuController::class, 'saveItem'])->name('backend.menus.item.save');
+        Route::post('/menus/item/delete', [MenuController::class, 'deleteItem'])->name('backend.menus.item.delete');
+        Route::post('/menus/save-order', [MenuController::class, 'saveOrder'])->name('backend.menus.save-order');
+        Route::get('/menus/get-items', [MenuController::class, 'getMenuItems'])->name('backend.menus.get-items');
     });
 });
 
