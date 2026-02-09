@@ -16,7 +16,7 @@
     </div>
     @if($menuItem->children->count() > 0)
     <ol class="dd-list">
-        @include('backend.pages.menus.partials.menu-item', ['menuItems' => $menuItem->children])
+        @include('backend.menus.partials.menu-item', ['menuItems' => $menuItem->children])
     </ol>
     @endif
 </li>

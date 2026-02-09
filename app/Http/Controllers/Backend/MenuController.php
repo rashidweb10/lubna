@@ -33,7 +33,7 @@ class MenuController extends Controller
             $menuItems = [];
         }
 
-        return view('backend.pages.menus.builder', compact('menuGroups', 'selectedMenuGroup', 'menuItems'));
+        return view('backend.menus.builder', compact('menuGroups', 'selectedMenuGroup', 'menuItems'));
     }
 
     /**

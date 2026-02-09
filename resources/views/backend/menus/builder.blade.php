@@ -56,7 +56,7 @@
                             <div class="card-body">
                                 <div id="menuTree" class="dd">
                                     <ol class="dd-list" id="menuItemsList">
-                                        @include('backend.pages.menus.partials.menu-item', ['menuItems' => $menuItems])
+                                        @include('backend.menus.partials.menu-item', ['menuItems' => $menuItems])
                                     </ol>
                                 </div>
                             </div>
