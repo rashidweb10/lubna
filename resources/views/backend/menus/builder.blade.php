@@ -32,16 +32,8 @@
                                     </button>
                                 </div>
                                 <div class="mb-3">
-                                   
+                                    
                                 </div>                                
-                                <div class="d-flex gap-2 mb-3">
-                                    <button class="btn btn-primary w-100" onclick="showAddItemModal()">
-                                        <i class="ti ti-plus"></i> Add Menu Item
-                                    </button>
-                                    <button class="btn btn-light w-100" onclick="saveMenuOrder()">
-                                        <i class="ti ti-menu-order"></i> Save Order
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,12 +44,20 @@
                             <div class="card-header">
                                 <h5>Menu Items</h5>
                             </div>
-                            <div class="card-body pt-0">
+                            <div class="card-body pt-0 pb-0">
                                 <div id="menuTree" class="dd">
                                     <ol class="dd-list" id="menuItemsList">
                                         @include('backend.menus.partials.menu-item', ['menuItems' => $menuItems])
                                     </ol>
                                 </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end gap-2">
+                                <button class="btn btn-primary" onclick="showAddItemModal()">
+                                    <i class="ti ti-plus"></i> Add New Item
+                                </button>
+                                <button class="btn btn-light" onclick="saveMenuOrder()">
+                                    <i class="ti ti-menu-order"></i> Save Order
+                                </button>
                             </div>
                         </div>
                     </div>
