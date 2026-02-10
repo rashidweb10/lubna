@@ -10,13 +10,13 @@
             <div class="card-body">
                 <div class="row">
                     <!-- Menu Group Selector -->
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="card-header">
                                 <h5>Menu Groups</h5>
                             </div>
-                            <div class="card-body">
-                                <div class="mb-3">
+                            <div class="card-body pt-0 pb-1">
+                                <div class="d-flex gap-2 mb-3">
                                     <select class="form-control" id="menuGroupSelect" onchange="changeMenuGroup()">
                                         @foreach($menuGroups as $group)
                                         <option value="{{ $group->id }}" {{ $selectedMenuGroup == $group->id ? 'selected' : '' }}>
@@ -24,31 +24,27 @@
                                         </option>
                                         @endforeach
                                     </select>
-                                </div>
-                                <div class="d-flex gap-2 mb-3">
-                                    <button class="btn btn-primary btn-sm" onclick="showAddItemModal()">
-                                        <i class="ti ti-plus"></i> Add Menu Item
-                                    </button>
-                                    <button class="btn btn-success btn-sm" onclick="saveMenuOrder()">
-                                        <i class="ti ti-save"></i> Save Order
+                                     <button class="btn btn-success btn-sm w-100" onclick="showAddGroupModal()">
+                                        <i class="ti ti-plus"></i> Create New Group
                                     </button>
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-info btn-sm w-100" onclick="showAddGroupModal()">
-                                        <i class="ti ti-plus"></i> Add Menu Group
+                                   
+                                </div>                                
+                                <div class="d-flex gap-2 mb-3">
+                                    <button class="btn btn-primary w-100" onclick="showAddItemModal()">
+                                        <i class="ti ti-plus"></i> Add Menu Item
                                     </button>
-                                </div>
-                                <div class="small text-muted">
-                                    <p>• Select a menu group to edit</p>
-                                    <p>• Drag and drop items to reorder</p>
-                                    <p>• Drag items inside others to create submenus</p>
+                                    <button class="btn btn-light w-100" onclick="saveMenuOrder()">
+                                        <i class="ti ti-menu-order"></i> Save Order
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Menu Items -->
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="card">
                             <div class="card-header">
                                 <h5>Menu Items</h5>
