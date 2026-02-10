@@ -1,17 +1,20 @@
 @extends('backend.layouts.app')
 
 @section('content')
+<div class="page-title-head d-flex align-items-center gap-2">
+    <div class="flex-grow-1">
+        <h4 class="fs-16 text-uppercase fw-bold mb-0">{{$moduleName ?? "Menus"}}</h4>
+    </div>
+</div>
+@include('backend.includes.alert-message')
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">Menu Builder</h4>
-            </div>
             <div class="card-body">
                 <div class="row">
                     <!-- Menu Group Selector -->
                     <div class="col-md-4">
-                        <div class="card">
+                        <div class="card border border-1">
                             <div class="card-header">
                                 <h5>Menu Groups</h5>
                             </div>
@@ -45,7 +48,7 @@
 
                     <!-- Menu Items -->
                     <div class="col-md-8">
-                        <div class="card">
+                        <div class="card border border-1">
                             <div class="card-header">
                                 <h5>Menu Items</h5>
                             </div>
@@ -154,7 +157,7 @@
         display: block;
         margin: 0;
         padding: 0;
-        max-width: 600px;
+        max-width: 100%;
         list-style: none;
         font-size: 13px;
         line-height: 20px;
