@@ -81,18 +81,18 @@
         </li>   
 
         <li class="side-nav-item">
+            <a href="{{ route('backend.menus') }}" class="side-nav-link">
+                <span class="menu-icon"><i class="ti ti-menu"></i></span>
+                <span class="menu-text"> Menus </span>
+            </a>
+        </li>        
+
+        <li class="side-nav-item">
             <a href="{{ route('visitors.index') }}" class="side-nav-link">
                 <span class="menu-icon"><i class="ti ti-world"></i></span>
                 <span class="menu-text"> Visitors </span>
             </a>
-        </li> 
-
-        <li class="side-nav-item">
-            <a href="{{ route('backend.menus') }}" class="side-nav-link">
-                <span class="menu-icon"><i class="ti ti-menu"></i></span>
-                <span class="menu-text"> Menu Management </span>
-            </a>
-        </li> 
+        </li>  
 
         <li class="side-nav-item">
             <a target="_blank" href="{{ url('') . '/command/optimize-clear?back=true' }}" class="side-nav-link text-danger fw-bold">
