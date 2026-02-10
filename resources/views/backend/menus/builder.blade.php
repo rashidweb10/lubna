@@ -244,6 +244,19 @@
         content: '-';
     }
 
+    /* Show only one button at a time */
+    .dd-item > button.dd-expand {
+        display: none;
+    }
+
+    .dd-item.dd-collapsed > button.dd-expand {
+        display: block;
+    }
+
+    .dd-item.dd-collapsed > button.dd-collapse {
+        display: none;
+    }
+
     .dd-placeholder,
     .dd-empty {
         margin: 5px 0;
