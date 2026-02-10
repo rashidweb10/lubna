@@ -84,10 +84,22 @@ class MenuController extends Controller
     }
 
     /**
-     * Create or update menu item
+     * Create or update menu item or fetch existing item for editing
      */
     public function saveItem(Request $request)
     {
+        // If only id is provided, fetch the existing menu item
+        if ($request->has('id') && !$request->has('name') && !$request->has('url') && !$request->has('menu_group_id')) {
+            $menuItem = MenuItem::find($request->id);
+            
+            if (!$menuItem) {
+                return response()->json(['success' => false, 'errors' => ['id' => 'Menu item not found']]);
+            }
+            
+            return response()->json(['success' => true, 'menu_item' => $menuItem]);
+        }
+
+        // Validation for creating/updating a menu item
         $validator = Validator::make($request->all(), [
             'menu_group_id' => 'required|exists:menu_groups,id',
             'name' => 'required|string|max:255',

@@ -438,6 +438,16 @@
                     $('#itemMenuGroupId').val(item.menu_group_id);
                     $('#menuItemModal').modal('show');
                 }
+            },
+            error: function(xhr) {
+                const errors = xhr.responseJSON?.errors;
+                if (errors) {
+                    $.each(errors, function(field, messages) {
+                        toastr.error(messages[0]);
+                    });
+                } else {
+                    toastr.error('Failed to fetch menu item');
+                }
             }
         });
     }
