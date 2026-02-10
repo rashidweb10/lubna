@@ -32,7 +32,21 @@
                                     </button>
                                 </div>
                                 <div class="mb-3">
-                                    
+                                    <ul class="list-group list-group-flush">
+                                        @foreach($menuGroups as $group)
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span>{{ $group->name }}</span>
+                                            <div class="d-flex gap-1">
+                                                <button class="btn btn-sm btn-primary" onclick="showEditGroupModal({{ $group->id }})">
+                                                    <i class="ti ti-pencil"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-danger" onclick="deleteGroup({{ $group->id }})">
+                                                    <i class="ti ti-trash"></i>
+                                                </button>
+                                            </div>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </div>                                
                             </div>
                         </div>
@@ -381,6 +395,16 @@
                     $('#groupStatus').val(group.status ? 1 : 0);
                     $('#menuGroupModal').modal('show');
                 }
+            },
+            error: function(xhr) {
+                const errors = xhr.responseJSON?.errors;
+                if (errors) {
+                    $.each(errors, function(field, messages) {
+                        toastr.error(messages[0]);
+                    });
+                } else {
+                    toastr.error('Failed to fetch menu group');
+                }
             }
         });
     }
@@ -503,6 +527,39 @@
                 }
             }
         });
+    }
+
+    function deleteGroup(groupId) {
+        if (confirm('Are you sure you want to delete this menu group? This will also delete all associated menu items.')) {
+            $.ajax({
+                url: '{{ route("backend.menus.group.delete") }}',
+                method: 'POST',
+                data: {
+                    id: groupId
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.success) {
+                        toastr.success('Menu group deleted successfully');
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 500);
+                    }
+                },
+                error: function(xhr) {
+                    const errors = xhr.responseJSON?.errors;
+                    if (errors) {
+                        $.each(errors, function(field, messages) {
+                            toastr.error(messages[0]);
+                        });
+                    } else {
+                        toastr.error('Failed to delete menu group');
+                    }
+                }
+            });
+        }
     }
 
     function deleteItem(itemId) {

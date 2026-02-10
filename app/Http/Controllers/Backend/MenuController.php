@@ -37,10 +37,22 @@ class MenuController extends Controller
     }
 
     /**
-     * Create or update menu group
+     * Create or update menu group or fetch existing group for editing
      */
     public function saveGroup(Request $request)
     {
+        // If only id is provided, fetch the existing menu group
+        if ($request->has('id') && !$request->has('name') && !$request->has('slug') && !$request->has('description') && !$request->has('status')) {
+            $menuGroup = MenuGroup::find($request->id);
+            
+            if (!$menuGroup) {
+                return response()->json(['success' => false, 'errors' => ['id' => 'Menu group not found']]);
+            }
+            
+            return response()->json(['success' => true, 'menu_group' => $menuGroup]);
+        }
+
+        // Validation for creating/updating a menu group
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:menu_groups,slug,' . $request->get('id'),
