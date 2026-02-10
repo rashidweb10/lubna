@@ -49,7 +49,7 @@
                             <div class="card-header">
                                 <h5>Menu Items</h5>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body pt-0">
                                 <div id="menuTree" class="dd">
                                     <ol class="dd-list" id="menuItemsList">
                                         @include('backend.menus.partials.menu-item', ['menuItems' => $menuItems])
@@ -285,7 +285,8 @@
 
     .menu-item-actions {
         float: right;
-        margin-top: -25px;
+        margin-top: -32px;
+        margin-right: 8px;
     }
 
     .menu-item-actions button {
