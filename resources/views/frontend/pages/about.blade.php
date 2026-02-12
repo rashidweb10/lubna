@@ -18,100 +18,64 @@
 
 @include('frontend.partials.breadcrumb', ['title' => $pageData->title, 'image' => $banner_images])
 
-<!--about us section start-->
-<section class="aboutpg_section pt-0 pt-md-5 pb-md-5 position-relative">
-   <div class="container position-relative">
-      <div class="row">
-        
-        
-         <div class="col-lg-8 paddngrgt80" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
-            <div class="text-start mb-md-4 mb-2 pt-4">
-               <h3 class="roboto text_color roboto fw-normal robot_slab ">{{$about_title}}</h3>
+		 <!-- Service 1 -->
+      <section class="inner_pading">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-4 col-12 mb-4 mb-md-0 pe-md-5 pe-0" data-aos="fade-right" data-aos-duration="900">
+               <img src="{{ asset('assets/frontend/img/lubna-rahman.jpg') }}" alt="Aesthetic Wellness Program" class="w-100 hvr-bounce-in">
             </div>
-           <div>
-             {!! $about_description !!}
-           </div>
-         </div>
-         <div class="col-lg-4 col-12 pt-5" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
-            <div class="about_border border_6 position-relative">
-               <img class="hvr-bounce-in aboutimgss" src="{{ uploaded_asset($about_image) }}" alt="img" />
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-
-{{-- @include('frontend.partials.course-carousel') --}}
-
- {{-- @if(isset($milestones['itration']) && is_array($milestones['itration']))
-<section id="counter" class="statistics-section about-us" >
-   <div class="container">
-      <div class="row">
-         @foreach($milestones['itration'] as $index => $itration)
-         <div class="col-md-3 col-6 text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-            <div class="stastic  @if($loop->last) @else startimg @endif ">
-               <div class="counter-value robot_slab" data-count="{{$milestones['title'][$index]}}">1+</div>
-               <p class="robot_slab">{{$milestones['description'][$index]}}</p>
-            </div>
-         </div>
-         @endforeach
-      </div>
-   </div>
-</section>
-@endif --}}
-
-<!-- Features Section -->
-@if(isset($quicklinks['itration']) && is_array($quicklinks['itration']))
-<section class="features_section pt-5 pb-5 mb-md-5" id="features_section">
-   <div class="container">
-      <div class="row g-4">
-      <div class="text-start mb-md-2 mb-0 pt-2">
-            <h3 class="robot_slab text_color text-center">Why MarinArch</h3>
-         </div>
-         
-         @foreach($quicklinks['itration'] as $index => $itration) 
-         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-            <div class="feature_card">
-               <div class="feature_icon">
-               <img class="jbox-img rotate w-100" src="{{ uploaded_asset($quicklinks['icon'][$index]) }}" alt="Image {{ $index }}">
-               </div>
-               <h3 class="feature_title robot_slab">{{$quicklinks['title'][$index]}}</h3>
-               <p class="feature_description">
-                  {{$quicklinks['description'][$index]}}
-               </p>
-            </div>
-         </div>
-      @endforeach
-
-      </div>
-   </div>
-</section>
-@endif
-
-{{-- @if(isset($quicklinks['itration']) && is_array($quicklinks['itration']))
-<section class="gallery_section">
-   <div class="bgcolor pb-4 pt-4 pb-md-5 pt-md-5">
-      <div class="container">
-       
-         <div class="row">
-
-            @foreach($quicklinks['itration'] as $index => $itration)  
-            <div class="col-md-4" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-               <a class="text-decoration-none text-dark" href="{{$quicklinks['description'][$index]}}">
-                  <div class="classroom_box border_2 position-relative">
-                     <img class="hvr-bounce-in w-100" src="{{ uploaded_asset($quicklinks['icon'][$index]) }}" alt="Image {{ $index }}">
-                     <div class=" text-center pt-3">
-                        <p class="robot_slab centered-text">{{$quicklinks['title'][$index]}}</p>
-                     </div>
+            <div class="col-md-8 col-12 ps-md-5 ps-0" data-aos="fade-left" data-aos-duration="900">
+               <div class="text-start mb-md-3 mb-2 pt-2">
+                    <h3 class="robot_slab text_color">Founder: Lubna Rahman</h3>
                   </div>
-               </a>
-            </div>
-            @endforeach
+				  <p>Lubna Rahman is a globally trained wellness and lifestyle specialist with over a decade of experience in health, fitness, and rehabilitation. Her approach blends science, grace, and holistic living helping individuals achieve lasting transformation through comprehensive, balanced practices.</p>
+                  <p>
+                 The journey of FS began in Prayagraj, Uttar Pradesh, at a time when the idea of women centric wellness and fitness was neither common nor easily accepted. Society was unprepared to acknowledge women's right to a dedicated platform for their health. Yet, with courage and clarity of vision, I chose to take the first step breaking barriers and creating an environment where women could truly find strength, balance, and belonging.
 
-         </div>
-      </div>
-   </div>
-</section>
-@endif --}}
+                  </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
+          <section class="inner_pading" style="    background: #ebedec7a;">
+        <div class="container">
+          <div class="row align-items-center">
+           
+            <div class="col-md-7 col-12 pe-md-5 ps-0 order-md-1 order-2" data-aos="fade-left" data-aos-duration="900">
+               <div class="text-start mb-md-3 mb-2 pt-2">
+                    <h3 class="robot_slab text_color">FS Awareness and Charity Programs</h3>
+                  </div>
+				 <p>FS conducts awareness and charity-based wellness programs focused on preventive health, education, and community well-being. Each initiative has been independently designed and executed under the FS framework, ensuring structure, quality, and measurable impact.
+</p>
+
+<p>Under this section, FS has launched the FSFIT Global Healthcare Initiative, created to strengthen preventive awareness and accessible wellness. Through this platform, FS organizes:
+      </p>
+      
+    
+    <ul>
+        <li> Pre-health camps and preventive assessments for baseline health evaluation.</li>
+        <li>Wellness awareness workshops covering fitness, nutrition, and rehabilitation.</li>
+        <li>Digital awareness programs promoting preventive lifestyle practices.</li>
+    </ul>  
+
+
+    <p>While these initiatives have been led solely by FS so far, the platform remains open to meaningful collaborations and joint ventures aligned with FS standards and shared values of integrity, quality, and community care.</p>
+     
+            </div>
+            
+             <div class="col-md-5 col-12 mb-4 mb-md-0 pe-0 order-md-2 order-1" data-aos="fade-right" data-aos-duration="900">
+               <div class="border-0 earth_image">
+                     <img src="{{ asset('assets/frontend/img/earth-hands.jpg') }}"
+                          class="card-img-top hvr-bounce-in"
+                          alt="Dummy Image">
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
 @endsection
