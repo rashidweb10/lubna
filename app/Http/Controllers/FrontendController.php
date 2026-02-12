@@ -37,6 +37,15 @@ class FrontendController extends Controller
         return view('frontend.pages.services', compact('pageData'));
     }
 
+    public function highlights()
+    {
+        $pageData = Page::with('meta')->where('is_active', 1)
+        ->where('slug', 'highlights')
+        ->firstOrFail();      
+    
+        return view('frontend.pages.highlights', compact('pageData'));
+    }
+
     public function contact()
     {
         return view('frontend.pages.contact');

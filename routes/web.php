@@ -63,6 +63,8 @@ Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
 
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 
+Route::get('/highlights', [FrontendController::class, 'highlights'])->name('highlights');
+
 Route::get('/contact-us', [FrontendController::class, 'contact'])->name('contact');
 
 Route::post('/submit-form', [FormController::class, 'submit'])->middleware(['protect.forms','recaptcha','throttle:4,1'])->name('form.submit');
