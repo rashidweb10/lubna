@@ -1586,7 +1586,7 @@ a.flip-box-button {
         width: 90% !important;
 }
 .aboutus_sections {
-    background-image: url(../images/bg.jpg);
+    background-image: url(../img/bg.jpg);
       padding-top: 120px;
     padding-bottom: 350px;
     background-position: center;
@@ -1752,7 +1752,7 @@ a.flip-box-button {
 }
 
 #counter {
-        background-image: url("../images/counter-bg.jpg");
+        background-image: url("../img/counter-bg.jpg");
 
         padding: 70px 0px !important;
 }
@@ -3211,22 +3211,22 @@ background: rgb(29 29 29 / 90%);
 
 /* Background images */
 .virtual-bg1 {
-    background: url('../images/ser-body-sculpting.jpg') center/cover no-repeat;
+    background: url('../img/ser-body-sculpting.jpg') center/cover no-repeat;
 }
 .virtual-bg2 {
-    background: url('../images/ser-fat-loss.jpg') center/cover no-repeat;
+    background: url('../img/ser-fat-loss.jpg') center/cover no-repeat;
 }
 .virtual-bg3 {
-    background: url('../images/ser-mental-balance.jpg') center/cover no-repeat;
+    background: url('../img/ser-mental-balance.jpg') center/cover no-repeat;
 }
 .virtual-bg4 {
-    background: url('../images/ser-nutrition-die-plan.jpg') center/cover no-repeat;
+    background: url('../img/ser-nutrition-die-plan.jpg') center/cover no-repeat;
 }
 .virtual-bg5 {
-    background: url('../images/ser-rehabilitation.jpg') center/cover no-repeat;
+    background: url('../img/ser-rehabilitation.jpg') center/cover no-repeat;
 }
 .virtual-bg6 {
-    background: url('../images/ser-aesthetic-plan.jpg') center/cover no-repeat;
+    background: url('../img/ser-aesthetic-plan.jpg') center/cover no-repeat;
 }
 .service-card {
     height: 660px;
@@ -3324,7 +3324,7 @@ p.first-text {
 
 
 section.services_sections {
-      background: url('../images/services-bg.jpg') center/cover no-repeat;
+      background: url('../img/services-bg.jpg') center/cover no-repeat;
     padding-bottom: 60px;
 }
 
@@ -3392,12 +3392,12 @@ button.slick-prev.slick-arrow {
     padding-top:20px;
 }
 /* Your images */
-#b1{ background: url('../images/home-banner-1.jpg') center/cover no-repeat;  }
-#b2{ background: url('../images/home-banner-2.jpg') center/cover no-repeat; }
-#b3{ background: url('../images/home-banner-3.jpg') center/cover no-repeat; }
-#b4{ background: url('../images/home-banner-4.jpg') center/cover no-repeat; }
-#b5{ background: url('../images/home-banner-5.jpg') center/cover no-repeat; }
-#b6{ background: url('../images/home-banner-6.jpg') center/cover no-repeat; }
+#b1{ background: url('../img/home-banner-1.jpg') center/cover no-repeat;  }
+#b2{ background: url('../img/home-banner-2.jpg') center/cover no-repeat; }
+#b3{ background: url('../img/home-banner-3.jpg') center/cover no-repeat; }
+#b4{ background: url('../img/home-banner-4.jpg') center/cover no-repeat; }
+#b5{ background: url('../img/home-banner-5.jpg') center/cover no-repeat; }
+#b6{ background: url('../img/home-banner-6.jpg') center/cover no-repeat; }
 
 .gallery-card {
     position: relative;

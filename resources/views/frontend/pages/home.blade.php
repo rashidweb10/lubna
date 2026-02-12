@@ -13,33 +13,33 @@
     <main>
       
       
-     <div id="customBanner" class="carousel slide carousel-fade custom-carousel d-lg-block d-md-block d-none"
-     data-bs-ride="carousel"
-     data-bs-interval="8000">
+      <div id="customBanner" class="carousel slide carousel-fade custom-carousel d-lg-block d-md-block d-none"
+      data-bs-ride="carousel"
+      data-bs-interval="8000">
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/home-banner-1.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-banner-1.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-banner-2.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-banner-2.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-banner-3.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-banner-3.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-banner-4.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-banner-4.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-banner-5.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-banner-5.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-banner-6.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-banner-6.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
   </div>
 
@@ -58,32 +58,32 @@
 
 
 <div id="customBanner" class="carousel slide carousel-fade custom-carousel d-lg-none d-md-none d-block"
-     data-bs-ride="carousel"
-     data-bs-interval="8000">
+      data-bs-ride="carousel"
+      data-bs-interval="8000">
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="images/home-mobile-banner-1.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-mobile-banner-1.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-mobile-banner-2.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-mobile-banner-2.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-mobile-banner-3.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-mobile-banner-3.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-mobile-banner-4.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-mobile-banner-4.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-mobile-banner-5.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-mobile-banner-5.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
 
     <div class="carousel-item">
-      <img src="images/home-mobile-banner-6.jpg" class="banner_zoom d-block w-100 banner-img" alt="">
+      <img src="{{ asset('assets/frontend/img/home-mobile-banner-6.jpg') }}" class="banner_zoom d-block w-100 banner-img" alt="">
     </div>
   </div>
 
@@ -102,9 +102,9 @@
      <section class="about_lubna">
           <div class="container">
             <div class="row align-items-center justify-content-center">
-              <div class="col-lg-3 col-md-5 col-12 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="8000" >
+               <div class="col-lg-3 col-md-5 col-12 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="8000" >
                 <div class="about_imgs">
-                  <img class="hvr-bounce-in w-100" src="images/lubna-rahman.jpg" alt="img" />
+                  <img class="hvr-bounce-in w-100" src="{{ asset('assets/frontend/img/lubna-rahman.jpg') }}" alt="img" />
                 </div>
               </div>
               <div class="col-lg-9 col-md-7 col-12 ps-lg-4 ps-0" data-aos="fade-left" data-aos-duration="8000">
@@ -266,12 +266,12 @@
               <ul class="services-scroll-list">
                 <li class="services-scroll-item">
                
-                   <a href="images/reviews/1.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/1.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/1.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/1.jpg" alt="">
                        
                       </div>
               </a>
@@ -279,12 +279,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/2.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/2.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/2.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/2.jpg" alt="">
                        
                       </div>
               </a>
@@ -292,12 +292,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/3.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/3.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/3.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/3.jpg" alt="">
                        
                       </div>
               </a>
@@ -305,12 +305,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/4.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/4.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/4.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/4.jpg" alt="">
                        
                       </div>
               </a>
@@ -318,12 +318,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/5.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/5.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/5.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/5.jpg" alt="">
                        
                       </div>
               </a>
@@ -331,26 +331,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/6.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/6.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/6.jpg" alt="">
-                       
-                      </div>
-              </a>
-                </li>
-                
-                
-                 <li class="services-scroll-item">
-               
-                   <a href="images/reviews/7.jpg"
-                 data-fancybox="album1"
-                 data-caption="Body Sculpting"
-                 class="d-block position-relative services-box-link">
-                       <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/7.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/6.jpg" alt="">
                        
                       </div>
               </a>
@@ -359,12 +345,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/8.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/7.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/8.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/7.jpg" alt="">
                        
                       </div>
               </a>
@@ -373,25 +359,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/9.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/8.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/9.jpg" alt="">
-                       
-                      </div>
-              </a>
-                </li>
-                
-                 <li class="services-scroll-item">
-               
-                   <a href="images/reviews/10.jpg"
-                 data-fancybox="album1"
-                 data-caption="Body Sculpting"
-                 class="d-block position-relative services-box-link">
-                       <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/10.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/8.jpg" alt="">
                        
                       </div>
               </a>
@@ -400,12 +373,25 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/11.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/9.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/11.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/9.jpg" alt="">
+                       
+                      </div>
+              </a>
+                </li>
+                
+                 <li class="services-scroll-item">
+               
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/10.jpg"
+                 data-fancybox="album1"
+                 data-caption="Body Sculpting"
+                 class="d-block position-relative services-box-link">
+                       <div class="services_boxs">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/10.jpg" alt="">
                        
                       </div>
               </a>
@@ -414,12 +400,26 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/12.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/11.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/12.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/11.jpg" alt="">
+                       
+                      </div>
+              </a>
+                </li>
+                
+                
+                 <li class="services-scroll-item">
+               
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/12.jpg"
+                 data-fancybox="album1"
+                 data-caption="Body Sculpting"
+                 class="d-block position-relative services-box-link">
+                       <div class="services_boxs">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/12.jpg" alt="">
                        
                       </div>
               </a>
@@ -429,12 +429,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/13.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/13.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/13.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/13.jpg" alt="">
                        
                       </div>
               </a>
@@ -443,12 +443,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/14.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/14.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/14.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/14.jpg" alt="">
                        
                       </div>
               </a>
@@ -457,12 +457,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/15.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/15.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/15.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/15.jpg" alt="">
                        
                       </div>
               </a>
@@ -471,12 +471,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/16.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/16.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/16.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/16.jpg" alt="">
                        
                       </div>
               </a>
@@ -485,12 +485,12 @@
                 
                  <li class="services-scroll-item">
                
-                   <a href="images/reviews/17.jpg"
+                   <a href="{{ asset("assets/frontend/img/reviews/") }}/17.jpg"
                  data-fancybox="album1"
                  data-caption="Body Sculpting"
                  class="d-block position-relative services-box-link">
                        <div class="services_boxs">
-                        <img class="jbox-img rotate w-100" src="images/reviews/17.jpg" alt="">
+                        <img class="jbox-img rotate w-100" src="{{ asset("assets/frontend/img/reviews/") }}/17.jpg" alt="">
                        
                       </div>
               </a>
