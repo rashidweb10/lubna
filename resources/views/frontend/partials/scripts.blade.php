@@ -1,16 +1,16 @@
  <!-- JavaScript Files -->
- <script src="js/jquery-3.6.0.min.js"></script>
- <script src="js/popper.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
- <script src="js/owl.carousel.min.js"></script>
+  <script src="{{ asset('assets/frontend/js/jquery-3.6.0.min.js') }}"></script>
+  <script src="{{ asset('assets/frontend/js/popper.min.js') }}"></script>
+  <script src="{{ asset('assets/frontend/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/frontend/js/owl.carousel.min.js') }}"></script>
 
- <script src="js/swiper.min.js"></script>
+  <script src="{{ asset('assets/frontend/js/swiper.min.js') }}"></script>
 <!-- Slick JS -->
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
  <!-- Fancybox JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
  
-  <script src="js/aos.js"></script>
+   <script src="{{ asset('assets/frontend/js/aos.js') }}"></script>
   
   <script>
 /* =========================

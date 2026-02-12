@@ -13,10 +13,10 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
 <!-- Internal stylesheets CSS -->
-<link rel="stylesheet" href="css/style.css?v=5.3.5">
-<link rel="stylesheet" href="css/responsive.css?v=5.2.8">
-<link rel="stylesheet" href="css/bootstrap.min.css?v=5.0.0">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/aos.css">
-<link rel="stylesheet" href="css/hover.css">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/style.css') }}?v=5.3.5">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/responsive.css') }}?v=5.2.8">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/bootstrap.min.css') }}?v=5.0.0">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/aos.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/hover.css') }}">

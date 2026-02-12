@@ -30,7 +30,7 @@
           <div class="col-lg-1 col-md-2 col-3 order-lg-1 order-md-1 order-2">
             <div class="logo_width">
               <a class="navbar-brand" href="/">
-                <img class="w-150 hvr-bounce-in" src="images/logo.png" title="FS-Lubna Rahman Logo" alt="" />
+                <img class="w-150 hvr-bounce-in" src="{{ asset('assets/frontend/img/logo.png') }}" title="FS-Lubna Rahman Logo" alt="" />
               </a>
             </div>
           </div>
@@ -73,8 +73,8 @@
                     <div class="mega-inner">
                       <div class="mega-visual">
                         <div class="mega-visual-wrap">
-                          <img class="menulogo hvr-bounce-in" src="images/logo.png" title="FS-Lubna Rahman Logo"
-                            alt="" />
+                           <img class="menulogo hvr-bounce-in" src="{{ asset('assets/frontend/img/logo.png') }}" title="FS-Lubna Rahman Logo"
+                              alt="" />
                           <p class="fslubhna">FS @ Lubna Rahman</p>
                         </div>
                       </div>
@@ -337,7 +337,7 @@
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
       <div class="moble_flex">
-        <img class="mobile-sidebar-logo" src="images/logo.png" alt="FS-Lubna Rahman Logo" />
+        <img class="mobile-sidebar-logo" src="{{ asset('assets/frontend/img/logo.png') }}" alt="FS-Lubna Rahman Logo" />
         <h4>FS @ Lubna Rahman</h4>
       </div>
       <button class="mobile-sidebar-close" id="mobileSidebarClose">
