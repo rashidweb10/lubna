@@ -28,6 +28,15 @@ class FrontendController extends Controller
         return view('frontend.pages.about', compact('pageData'));
     }
 
+    public function services()
+    {
+        $pageData = Page::with('meta')->where('is_active', 1)
+        ->where('slug', 'services')
+        ->firstOrFail();      
+    
+        return view('frontend.pages.services', compact('pageData'));
+    }
+
     public function contact()
     {
         return view('frontend.pages.contact');
