@@ -26,6 +26,10 @@
                         <label for="company-name" class="form-label">Company Name <span class="text-danger">*</span></label>
                         <input type="text" id="company-name" name="name" value="{{ old('name', $pageData->name) }}" class="form-control" placeholder="e.g : Sample Company" required>
                     </div>
+                    <div class="mb-3 form-group">
+                        <label for="meta-tagline" class="form-label">Tagline</label>
+                        <input type="text" class="form-control" id="meta-tagline" name="meta[tagline]" value="{{ old('meta.tagline', $pageData->meta->where('meta_key', 'tagline')->first()->meta_value ?? '') }}" placeholder="Enter tagline Text">
+                    </div>                    
                     <div class="mb-2 form-group">
                         <label for="company-logo" class="form-label">{{ __('Breadcrumb') }} <span class="text-danger">*</span></label>
                         <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">

@@ -88,7 +88,7 @@
                         <div class="mega-visual-wrap">
                            <img class="menulogo hvr-bounce-in" src="{{ asset('assets/frontend/img/logo.png') }}" title="FS-Lubna Rahman Logo"
                               alt="" />
-                          <p class="fslubhna">FS @ Lubna Rahman</p>
+                          <p class="fslubhna">{{get_setting('name')}}</p>
                         </div>
                       </div>
                       <div class="mega-links">
@@ -121,7 +121,7 @@
 
     <div class="container">
 
-      <h4 class="transforming_text">Transforming lives for a healthier, happier world</h4>
+      <h4 class="transforming_text">{{get_setting('tagline')}}</h4>
 
       <!-- MENU BUTTON -->
       <div class="calculate_buttons">
@@ -347,8 +347,8 @@
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
       <div class="moble_flex">
-        <img class="mobile-sidebar-logo" src="{{ asset('assets/frontend/img/logo.png') }}" alt="FS-Lubna Rahman Logo" />
-        <h4>FS @ Lubna Rahman</h4>
+        <img class="mobile-sidebar-logo" src="{{ uploaded_asset(get_setting('logo')) }}" alt="{{ uploaded_asset_name(get_setting('logo')) }}" />
+        <h4>{{get_setting('name')}}</h4>
       </div>
       <button class="mobile-sidebar-close" id="mobileSidebarClose">
         <i class="fas fa-times"></i>
