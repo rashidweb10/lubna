@@ -57,7 +57,7 @@
           </div>
 
           <div class="col-lg-3 col-md-8 col-8 order-lg-2 order-md-2 order-3">
-            <h3 class="header_text roboto mt-md-0 mt-2">{{get_setting('follow_text')}}</h3>
+            <h3 class="header_text roboto mt-md-0 mt-2">{{get_setting('name')}}</h3>
 
           </div>
 
