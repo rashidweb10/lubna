@@ -52,10 +52,8 @@ class FormController extends Controller
                 return [
                     'form_name' => 'required|max:20',
                     'name' => 'required|string|max:50',
-                    'company' => 'required|string|max:70',
                     'phone' => 'nullable|digits_between:10,15|max:50',
                     'email' => 'required|email|max:50',
-                    'subject' => 'nullable|string|max:100',
                     'message' => 'nullable|string|max:150'
                 ];
 

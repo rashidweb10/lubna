@@ -58,11 +58,14 @@
           <div class="bg-light p-4 p-md-5 rounded-3 shadow-sm">
             
 
-            <form action="" method="POST">
+              <form class="needs-validation" id="contactForm" action="{{route('form.submit')}}" method="POST" onsubmit="protect_with_recaptcha_v3(this, 'contact')">
+              @include('frontend.components.form-alert')
+              @csrf
               <!-- Name and Company -->
               <div class="row g-3">
                 <div class="col-md-4 col-12">
                   <label for="name" class="form-label">Name</label>
+                     <input type="hidden" name="form_name" value="contact">
                      <input type="text" class="form-control" name="name" placeholder="Name" required>
 
                 </div>
