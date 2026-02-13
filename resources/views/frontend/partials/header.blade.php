@@ -92,12 +92,35 @@
                         </div>
                       </div>
                       <div class="mega-links">
-                        <a class="mega-link" href="{{ route('services') }}#aesthetic">Aesthetic Wellness Program</a>
-                        <a class="mega-link" href="{{ route('services') }}#rehabilitation">Rehabilitation Coaching</a>
-                        <a class="mega-link" href="{{ route('services') }}#mental">Mental Wellness Coaching</a>
-                        <a class="mega-link" href="{{ route('services') }}#program">Fat Loss Program</a>
-                        <a class="mega-link" href="{{ route('services') }}#nutrition">Nutrition Diet Plan</a>
-                        <a class="mega-link" href="{{ route('services') }}#sculpting">Body Sculpting</a>
+                        @php
+                            // Check if we're on the services page or if we can load services data
+                            $services = [];
+                            if(isset($pageData) && $pageData->slug == 'services') {
+                                $services = json_decode($pageData->meta->where('meta_key', 'services')->first()->meta_value ?? '[]', true);
+                            } else {
+                                // Load services data from database if not on services page
+                                $servicesPage = \App\Models\Page::with('meta')->where('slug', 'services')->where('is_active', 1)->first();
+                                if($servicesPage) {
+                                    $services = json_decode($servicesPage->meta->where('meta_key', 'services')->first()->meta_value ?? '[]', true);
+                                }
+                            }
+                        @endphp
+                        @if(isset($services['itration']) && is_array($services['itration']))
+                            @foreach($services['itration'] as $index => $iteration)
+                                @php
+                                    $slug = strtolower(str_replace(' ', '-', $services['name'][$index] ?? 'service'));
+                                @endphp
+                                <a class="mega-link" href="{{ route('services') }}#{{ $slug }}">{{ $services['name'][$index] ?? 'Service' }}</a>
+                            @endforeach
+                        @else
+                            <!-- Default service links if no services are configured -->
+                            <a class="mega-link" href="{{ route('services') }}#aesthetic">Aesthetic Wellness Program</a>
+                            <a class="mega-link" href="{{ route('services') }}#rehabilitation">Rehabilitation Coaching</a>
+                            <a class="mega-link" href="{{ route('services') }}#mental">Mental Wellness Coaching</a>
+                            <a class="mega-link" href="{{ route('services') }}#program">Fat Loss Program</a>
+                            <a class="mega-link" href="{{ route('services') }}#nutrition">Nutrition Diet Plan</a>
+                            <a class="mega-link" href="{{ route('services') }}#sculpting">Body Sculpting</a>
+                        @endif
                       </div>
                     </div>
                   </div>
