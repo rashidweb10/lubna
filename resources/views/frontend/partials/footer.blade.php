@@ -5,26 +5,25 @@
             
             </div>
             <div class="col-lg-5 col-md-6">
-                <h4 class="robot_slab">Follow <b>FS @ Lubna Rahman.</b></h4>
+                <h4 class="robot_slab">Follow <b>{{get_setting('follow_text')}}</b></h4>
             </div>
             <div class="col-lg-5 col-md-6">
                 <div class="d-flex gap-2 justify-content-md-end justify-content-center mt-lg-0 mt-2">
-                    <a target="_blank" href="https://www.facebook.com/share/1TjaLAU1YT/?mibextid=wwXIfr" title="Facebook">
+                    <a target="_blank" href="{{get_setting('facebook_url')}}" title="Facebook">
                     <img class="w-20 hvr-bounce-in" src="{{ asset('assets/frontend/img/fb.png') }}">
                     </a>
                     
-                    <a target="_blank" href="https://www.instagram.com/fs_lubna_rahman?igsh=dXZxaDMzNnpheWd6&utm_source=qr" title="Instagram ">
+                    <a target="_blank" href="{{get_setting('instagram_url')}}" title="Instagram ">
                     <img class="w-20 hvr-bounce-in" src="{{ asset('assets/frontend/img/insta.png') }}">
                     </a>
                     
-                    <a target="_blank" href="https://www.linkedin.com/in/lubna-rahman-29a018a9/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" title="Linkedin">
+                    <a target="_blank" href="{{get_setting('linkedin_url')}}" title="Linkedin">
                     <img class="w-20 hvr-bounce-in" src="{{ asset('assets/frontend/img/in.png') }}">
                     </a>
                     
-                    <a target="_blank" href="https://youtube.com/@lubnarahman101?si=J6pz-QPnwd0Tn5jv" title="YouTube">
+                    <a target="_blank" href="{{get_setting('youtube_url')}}" title="YouTube">
                     <img class="w-20 hvr-bounce-in" src="{{ asset('assets/frontend/img/yt.png') }}">
                     </a>
-                    
                 </div>
             </div>
     </div>
@@ -48,25 +47,22 @@
                <div class="d-md-flex browser_link">
                 <ul class="mb-2 mb-lg-0 d-md-flex align-items-start">
  
-  <li class="nav-item">
-    <a class="nav-link  addmissionactive" href="/">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link  " href="about-us.php">About Us</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link  " href="our-services.php">Our Services</a>
-  </li>
+   <li class="nav-item">
+     <a class="nav-link {{ request()->routeIs('home') ? 'addmissionactive' : '' }}" href="{{ route('home') }}">Home</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link {{ request()->routeIs('about') ? 'addmissionactive' : '' }}" href="{{ route('about') }}">About Us</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link {{ request()->routeIs('services') ? 'addmissionactive' : '' }}" href="{{ route('services') }}">Our Services</a>
+   </li>
 
-  <li class="nav-item">
-    <a class="nav-link  " href="highlights.php">Highlights</a>
-  </li>
-  <!--<li class="nav-item">-->
-  <!--  <a class="nav-link  " href="testimonials.php">Testimonials</a>-->
-  <!--</li>-->
-  <li class="nav-item">
-    <a class="nav-link " href="contact-us.php">Contact Us</a>
-  </li>
+   <li class="nav-item">
+     <a class="nav-link {{ request()->routeIs('highlights') ? 'addmissionactive' : '' }}" href="{{ route('highlights') }}">Highlights</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link {{ request()->routeIs('contact') ? 'addmissionactive' : '' }}" href="{{ route('contact') }}">Contact Us</a>
+   </li>
 </ul>
 
 
