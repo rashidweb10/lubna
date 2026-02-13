@@ -35,7 +35,7 @@
             </div>
             <div>
               <h5 class="fw-semibold mb-1">Email Us</h5>
-              <p class="mb-0 text-muted">fslr00001@gmail.com</p>
+              <p class="mb-0 text-muted">{{get_setting('email')}}</p>
             </div>
           </div>
 
@@ -46,7 +46,7 @@
             </div>
             <div>
               <h5 class="fw-semibold mb-1">Message Us</h5>
-              <p class="mb-0 text-muted">+91 9336078476‬‬‬</p>
+              <p class="mb-0 text-muted">{{get_setting('phone')}}</p>
             </div>
           </div>
 </div>
