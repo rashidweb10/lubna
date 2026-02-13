@@ -8,7 +8,7 @@
 
 
           <div class="col-lg-10 col-md-6 col-7">
-            <p class="mrg_35">Whatsapp: +91 9336078476</p>
+            <p class="mrg_35">Whatsapp: {{get_setting('phone')}}</p>
           </div>
 
 
@@ -30,7 +30,20 @@
           <div class="col-lg-1 col-md-2 col-3 order-lg-1 order-md-1 order-2">
             <div class="logo_width">
               <a class="navbar-brand" href="/">
-                <img class="w-150 hvr-bounce-in" src="{{ asset('assets/frontend/img/logo.png') }}" title="FS-Lubna Rahman Logo" alt="" />
+                  @if(get_setting('logo'))
+                      <img 
+                          class="w-150 hvr-bounce-in"
+                          src="{{ uploaded_asset(get_setting('logo')) }}"
+                          title="{{ uploaded_asset_name(get_setting('logo')) }}"
+                          alt="Logo"
+                      />
+                  @else
+                      <img 
+                          class="w-150 hvr-bounce-in"
+                          src="{{ asset('assets/frontend/img/logo.png') }}"
+                          alt="Logo"
+                      />
+                  @endif
               </a>
             </div>
           </div>
@@ -44,7 +57,7 @@
           </div>
 
           <div class="col-lg-3 col-md-8 col-8 order-lg-2 order-md-2 order-3">
-            <h3 class="header_text roboto mt-md-0 mt-2">FS @ Lubna Rahman</h3>
+            <h3 class="header_text roboto mt-md-0 mt-2">{{get_setting('follow_text')}}</h3>
 
           </div>
 
