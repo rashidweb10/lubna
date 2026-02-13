@@ -88,10 +88,10 @@
        </div>
        <div class="col-lg-2"></div>
        <div class="col-lg-7 col-md-9">
-         <p class="footer-copyright mb-0 pt-lg-3 pb-lg-3">Copyright © by FS @ Lubna Rahman 2026 | All Rights Reserved.</p>
+         <p class="footer-copyright mb-0 pt-lg-3 pb-lg-3">Copyright © by {{get_setting('name')}} {{ date("Y") }} | All Rights Reserved.</p>
        </div>
        <div class="col-lg-3 col-md-3 text-md-end text-center">
-         <p class="footer-copyright mb-0 copyrighr2 text-md-end text-center pt-3 pt-lg-3 pt-md-0 pb-3">Powered by <a href="https://maptek.in/" target="_blank" >Maptek</a>
+         <p class="footer-copyright mb-0 copyrighr2 text-md-end text-center pt-3 pt-lg-3 pt-md-0 pb-3">Powered by <a href="{{ config('custom.author_url') }}" target="_blank" >{{ config('custom.author') }}</a>
          </p>
        </div>
      </div>
