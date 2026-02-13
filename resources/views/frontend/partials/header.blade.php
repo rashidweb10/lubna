@@ -54,18 +54,18 @@
               <ul class="ms-auto mb-2 mb-lg-0 d-flex align-items-center">
 
                 <li class="nav-item">
-                  <a class="nav-link  <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'addmissionactive' : '' ?>"
-                    href="/">Home</a>
+                  <a class="nav-link {{ request()->routeIs('home') ? 'addmissionactive' : '' }}"
+                    href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link  <?= basename($_SERVER['PHP_SELF']) == 'about-us.php' ? 'addmissionactive' : '' ?>"
-                    href="about-us.php">About Us</a>
+                  <a class="nav-link {{ request()->routeIs('about') ? 'addmissionactive' : '' }}"
+                    href="{{ route('about') }}">About Us</a>
                 </li>
                 <!--<li class="nav-item">-->
-                <!--  <a class="nav-link  <?= basename($_SERVER['PHP_SELF']) == 'our-services.php' ? 'addmissionactive' : '' ?>" href="our-services.php">Our Services</a>-->
+                <!--  <a class="nav-link {{ request()->routeIs('services') ? 'addmissionactive' : '' }}" href="{{ route('services') }}">Our Services</a>-->
                 <!--</li>-->
                 <li class="nav-item dropdown megamenu position_tops">
-                  <a class="nav-link dropdown-toggle" href="our-services.php" id="servicesDropdown" role="button"
+                  <a class="nav-link dropdown-toggle {{ request()->routeIs('services') ? 'addmissionactive' : '' }}" href="{{ route('services') }}" id="servicesDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="true">
                     Our Services
                   </a>
@@ -79,26 +79,23 @@
                         </div>
                       </div>
                       <div class="mega-links">
-                        <a class="mega-link" href="our-services.php#aesthetic">Aesthetic Wellness Program</a>
-                        <a class="mega-link" href="our-services.php#rehabilitation">Rehabilitation Coaching</a>
-                        <a class="mega-link" href="our-services.php#mental">Mental Wellness Coaching</a>
-                        <a class="mega-link" href="our-services.php#program">Fat Loss Program</a>
-                        <a class="mega-link" href="our-services.php#nutrition">Nutrition Diet Plan</a>
-                        <a class="mega-link" href="our-services.php#sculpting">Body Sculpting</a>
+                        <a class="mega-link" href="{{ route('services') }}#aesthetic">Aesthetic Wellness Program</a>
+                        <a class="mega-link" href="{{ route('services') }}#rehabilitation">Rehabilitation Coaching</a>
+                        <a class="mega-link" href="{{ route('services') }}#mental">Mental Wellness Coaching</a>
+                        <a class="mega-link" href="{{ route('services') }}#program">Fat Loss Program</a>
+                        <a class="mega-link" href="{{ route('services') }}#nutrition">Nutrition Diet Plan</a>
+                        <a class="mega-link" href="{{ route('services') }}#sculpting">Body Sculpting</a>
                       </div>
                     </div>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link  <?= basename($_SERVER['PHP_SELF']) == 'highlights.php' ? 'addmissionactive' : '' ?>"
-                    href="highlights.php">Highlights</a>
+                  <a class="nav-link {{ request()->routeIs('highlights') ? 'addmissionactive' : '' }}"
+                    href="{{ route('highlights') }}">Highlights</a>
                 </li>
-                <!--<li class="nav-item">-->
-                <!--  <a class="nav-link  <?= basename($_SERVER['PHP_SELF']) == 'testimonials.php' ? 'addmissionactive' : '' ?>" href="testimonials.php">Testimonials</a>-->
-                <!--</li>-->
                 <li class="nav-item">
-                  <a class="nav-link <?= basename($_SERVER['PHP_SELF']) == 'contact-us.php' ? 'addmissionactive' : '' ?>"
-                    href="contact-us.php">Contact Us</a>
+                  <a class="nav-link {{ request()->routeIs('contact') ? 'addmissionactive' : '' }}"
+                    href="{{ route('contact') }}">Contact Us</a>
                 </li>
               </ul>
 
@@ -347,43 +344,38 @@
     <nav class="mobile-sidebar-nav">
       <ul class="mobile-sidebar-menu">
         <li class="mobile-menu-item">
-          <a href="/" class="mobile-menu-link <?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>">
+          <a href="{{ route('home') }}" class="mobile-menu-link {{ request()->routeIs('home') ? 'active' : '' }}">
             <i class="fas fa-home"></i> Home
           </a>
         </li>
         <li class="mobile-menu-item">
-          <a href="about-us.php"
-            class="mobile-menu-link <?= basename($_SERVER['PHP_SELF']) == 'about-us.php' ? 'active' : '' ?>">
+          <a href="{{ route('about') }}"
+            class="mobile-menu-link {{ request()->routeIs('about') ? 'active' : '' }}">
             <i class="fas fa-user"></i> About Us
           </a>
         </li>
         <li class="mobile-menu-item mobile-menu-dropdown">
-          <a href="our-services.php" class="mobile-menu-link mobile-dropdown-toggle">
+          <a href="{{ route('services') }}" class="mobile-menu-link mobile-dropdown-toggle {{ request()->routeIs('services') ? 'active' : '' }}">
             <i class="fas fa-briefcase"></i> Our Services <i class="fas fa-chevron-down mobile-dropdown-icon"></i>
           </a>
           <ul class="mobile-submenu">
-            <li><a href="our-services.php#aesthetic">Aesthetic Wellness Program</a></li>
-            <li><a href="our-services.php#rehabilitation">Rehabilitation Coaching</a></li>
-            <li><a href="our-services.php#mental">Mental Wellness Coaching</a></li>
-            <li><a href="our-services.php#program">Fat Loss Program</a></li>
-            <li><a href="our-services.php#nutrition">Nutrition Diet Plan</a></li>
-            <li><a href="our-services.php#sculpting">Body Sculpting</a></li>
+            <li><a href="{{ route('services') }}#aesthetic">Aesthetic Wellness Program</a></li>
+            <li><a href="{{ route('services') }}#rehabilitation">Rehabilitation Coaching</a></li>
+            <li><a href="{{ route('services') }}#mental">Mental Wellness Coaching</a></li>
+            <li><a href="{{ route('services') }}#program">Fat Loss Program</a></li>
+            <li><a href="{{ route('services') }}#nutrition">Nutrition Diet Plan</a></li>
+            <li><a href="{{ route('services') }}#sculpting">Body Sculpting</a></li>
           </ul>
         </li>
         <li class="mobile-menu-item">
-          <a href="highlights.php"
-            class="mobile-menu-link <?= basename($_SERVER['PHP_SELF']) == 'highlights.php' ? 'active' : '' ?>">
+          <a href="{{ route('highlights') }}"
+            class="mobile-menu-link {{ request()->routeIs('highlights') ? 'active' : '' }}">
             <i class="fas fa-images"></i> Highlights
           </a>
         </li>
-        <!--<li class="mobile-menu-item">-->
-        <!--  <a href="testimonials.php" class="mobile-menu-link <?= basename($_SERVER['PHP_SELF']) == 'testimonials.php' ? 'active' : '' ?>">-->
-        <!--    <i class="fas fa-star"></i> Testimonials-->
-        <!--  </a>-->
-        <!--</li>-->
         <li class="mobile-menu-item">
-          <a href="contact-us.php"
-            class="mobile-menu-link <?= basename($_SERVER['PHP_SELF']) == 'contact-us.php' ? 'active' : '' ?>">
+          <a href="{{ route('contact') }}"
+            class="mobile-menu-link {{ request()->routeIs('contact') ? 'active' : '' }}">
             <i class="fas fa-envelope"></i> Contact Us
           </a>
         </li>
