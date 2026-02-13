@@ -101,7 +101,7 @@
  
  
  <div class="whatsapp">
-     <a class="robot_slab " href="https://api.whatsapp.com/send?phone=+919336078476&text=Hi%2C+I+am+contacting+you+through+your+website+https%3A%2F%2Ffs-lubnarahman.com%2F‬‬‬" target="_blaUs">
+     <a class="robot_slab " href="https://api.whatsapp.com/send?phone={{get_setting('phone')}}&text=Hi%2C+I+am+contacting+you+through+your+website+https%3A%2F%2Ffs-lubnarahman.com%2F‬‬‬" target="_blaUs">
           <img class="hvr-bounce-in" src="{{ asset('assets/frontend/img/whatsap.png') }}"> <span class="robot_slab ">Book a Consultation</span>
      </a>
  </div>
