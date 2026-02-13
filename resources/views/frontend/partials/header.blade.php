@@ -86,7 +86,7 @@
                     <div class="mega-inner">
                       <div class="mega-visual">
                         <div class="mega-visual-wrap">
-                           <img class="menulogo hvr-bounce-in" src="{{ asset('assets/frontend/img/logo.png') }}" title="FS-Lubna Rahman Logo"
+                           <img class="menulogo hvr-bounce-in" src="{{ uploaded_asset(get_setting('logo')) }}" title="{{ uploaded_asset_name(get_setting('logo')) }}"
                               alt="" />
                           <p class="fslubhna">{{get_setting('name')}}</p>
                         </div>
