@@ -101,7 +101,7 @@
                                         @php
                                             $value = $formData[$col] ?? '-';
                                             if (is_array($value) || is_object($value)) {
-                                                $value = json_encode($value);
+                                                $value = implode(', ', $value);
                                             }
                                         @endphp
                                         {{ $value }}
