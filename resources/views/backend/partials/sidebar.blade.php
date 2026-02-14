@@ -80,12 +80,12 @@
             </a>
         </li>   
 
-        <li class="side-nav-item">
+        {{-- <li class="side-nav-item">
             <a href="{{ route('backend.menus') }}" class="side-nav-link">
                 <span class="menu-icon"><i class="ti ti-menu"></i></span>
                 <span class="menu-text"> Menus </span>
             </a>
-        </li>        
+        </li>         --}}
 
         <li class="side-nav-item">
             <a href="{{ route('visitors.index') }}" class="side-nav-link">
