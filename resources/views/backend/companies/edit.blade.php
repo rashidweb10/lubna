@@ -70,6 +70,35 @@
                         <input type="text" class="form-control" id="meta-Follow" name="meta[follow_text]" value="{{ old('meta.follow_text', $pageData->meta->where('meta_key', 'follow_text')->first()->meta_value ?? '') }}" placeholder="Enter Follow Text">
                     </div>
 
+                    <div class="mb-3 form-group">
+                        <label for="meta-star_of_month_text" class="form-label">Start Of The Month - Name</label>
+                        <input type="text" class="form-control" id="meta-star_of_month_text" name="meta[star_of_month_text]" value="{{ old('meta.star_of_month_text', $pageData->meta->where('meta_key', 'star_of_month_text')->first()->meta_value ?? '') }}" placeholder="Enter Text">
+                    </div>
+
+                    <div class="mb-2 form-group">
+                        <label for="company-sof_profile_picture" class="form-label">Start Of The Month - Profile Picture</label>
+                        <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ __('Browse') }}</div>
+                            </div>
+                            <div class="form-control file-amount">{{ __('Choose File') }}</div>
+                            <input type="hidden" id="company-sof_profile_picture" name="meta[sof_profile_picture]" value="{{ old('meta.sof_profile_picture', $pageData->meta->where('meta_key', 'sof_profile_picture')->first()->meta_value ?? '') }}" class="selected-files" required>
+                        </div>
+                        <div class="file-preview box sm"></div>
+                    </div>
+
+                    <div class="mb-2 form-group">
+                        <label for="company-sof_popup_image" class="form-label">Start Of The Month - Popup Image</label>
+                        <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="false">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-soft-secondary font-weight-medium">{{ __('Browse') }}</div>
+                            </div>
+                            <div class="form-control file-amount">{{ __('Choose File') }}</div>
+                            <input type="hidden" id="company-sof_popup_image" name="meta[sof_popup_image]" value="{{ old('meta.sof_popup_image', $pageData->meta->where('meta_key', 'sof_popup_image')->first()->meta_value ?? '') }}" class="selected-files" required>
+                        </div>
+                        <div class="file-preview box sm"></div>
+                    </div>                    
+
                     {{-- <div class="mb-3 form-group">
                         <label for="company-address" class="form-label">Address <span class="text-danger">*</span></label>
                         <input type="text" id="company-address" name="address" value="{{ old('address', $pageData->address) }}" class="form-control" placeholder="e.g : 123 Main St, City, Country" required>
