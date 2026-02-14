@@ -4,7 +4,7 @@
 # {{ ucfirst($formName) }} Form Submission
 
 @foreach($data as $key => $value)
-**{{ ucwords(str_replace('_', ' ', $key)) }}:** {{ $value }}
+**{{ ucwords(str_replace('_', ' ', $key)) }}:** {{ is_array($value) ? implode(', ', $value) : $value }}
 
 @endforeach
 
