@@ -237,8 +237,8 @@
                 <div class="medical-history-checkboxes">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="medical-hypertension" name="medical_history[]"
-                      value="Hypertension/ High BP">
-                    <label class="form-check-label" for="medical-hypertension">Hypertension/ High BP</label>
+                      value="Hypertension / High BP">
+                    <label class="form-check-label" for="medical-hypertension">Hypertension / High BP</label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="medical-diabetes" name="medical_history[]"
