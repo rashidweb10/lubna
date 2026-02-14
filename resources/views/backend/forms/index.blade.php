@@ -46,7 +46,7 @@
                             @foreach($formNames as $name)
                                 <a href="{{ route('forms.by', ['form_name' => $name]) }}"
                                 class="btn btn-outline-primary {{ request()->segment(3) == $name ? 'active' : '' }}">
-                                    {{ ucfirst($name) }}
+                                    {{ ucwords(str_replace('_', ' ', $name)) }}
                                 </a>
                             @endforeach
                         </div>  
