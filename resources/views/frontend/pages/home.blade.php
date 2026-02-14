@@ -6,7 +6,7 @@
 @section('content')
 
 @php
-    $banner_images = $pageData->meta->where('meta_key', 'banner_images')->first()->meta_value ?? '';
+    $banner_images = explode(',', $pageData->meta->where('meta_key', 'banner_images')->first()->meta_value ?? []);
 
     $about_title = $pageData->meta->where('meta_key', 'about_title')->first()->meta_value ?? '';
     $about_description = $pageData->meta->where('meta_key', 'about_description')->first()->meta_value ?? '';
@@ -15,7 +15,7 @@
     $about_school_title = $pageData->meta->where('meta_key', 'about_school_title')->first()->meta_value ?? '';
     $about_school_description = $pageData->meta->where('meta_key', 'about_school_description')->first()->meta_value ?? '';
 
-    $testimonial_images = $pageData->meta->where('meta_key', 'testimonial_images')->first()->meta_value ?? '';
+    $testimonial_images = explode(',', $pageData->meta->where('meta_key', 'testimonial_images')->first()->meta_value ?? []);
 @endphp
 
 <style>
@@ -35,13 +35,13 @@
          data-bs-interval="8000">
 
         <div class="carousel-inner">
-            @for ($i = 1; $i <= 6; $i++)
+            @foreach($banner_images as $i => $image)
                 <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
-                    <img src="{{ asset('assets/frontend/img/home-banner-' . $i . '.jpg') }}"
+                    <img src="{{ uploaded_asset($image) }}"
                          class="banner_zoom d-block w-100 banner-img"
                          alt="Banner {{ $i }}">
                 </div>
-            @endfor
+            @endforeach
         </div>
 
         <button class="carousel-control-prev custom-prev d-none d-md-flex"
@@ -69,13 +69,13 @@
          data-bs-interval="8000">
 
         <div class="carousel-inner">
-            @for ($i = 1; $i <= 6; $i++)
+            @foreach($banner_images as $i => $image)
                 <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
-                    <img src="{{ asset('assets/frontend/img/home-mobile-banner-' . $i . '.jpg') }}"
+                    <img src="{{ uploaded_asset($image) }}"
                          class="banner_zoom d-block w-100 banner-img"
                          alt="Mobile Banner {{ $i }}">
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 
@@ -92,7 +92,7 @@
                      data-aos-duration="8000">
                     <div class="about_imgs">
                         <img class="hvr-bounce-in w-100"
-                             src="{{ asset('assets/frontend/img/lubna-rahman.jpg') }}"
+                             src="{{ uploaded_asset($about_image) }}"
                              alt="Lubna Rahman">
                     </div>
                 </div>
@@ -103,15 +103,12 @@
 
                     <div class="education_box">
                         <h3 class="robot_slab text_color font33">
-                            Founder: Lubna Rahman
+                            {{ $about_title }}
                         </h3>
 
-                        <p>
-                            Lubna Rahman is a globally trained wellness and lifestyle specialist
-                            with over a decade of experience in health, fitness, and rehabilitation.
-                            Her approach blends science, grace, and holistic living helping individuals
-                            achieve lasting transformation through comprehensive, balanced practices.
-                        </p>
+                        <div>
+                            {!! $about_description !!}
+                        </div>
                     </div>
 
                 </div>
@@ -166,6 +163,28 @@
         </div>
     </section>
 
+    <!-- =======================
+        About School Section
+    ======================== -->
+    <section class="aboutus_sections">
+          <div class="container">
+            <div class="row align-items-center justify-content-center">
+             
+              <div class="col-lg-12 col-md-12 col-12 ps-md-4 ps-0 aos-init aos-animate" data-aos="fade-left" data-aos-duration="8000">
+                <div class="education_box">
+                  <div class="text-start mb-md-3 mb-2 pt-2">
+                    <h3 class="robot_slab text_color font33">{{  $about_school_title }}</h3>
+                  </div>
+				  
+                 
+                 <div>{!! $about_school_description !!}</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>    
+
 
     <!-- =======================
         Client Speaks Section
@@ -185,21 +204,21 @@
             <div class="services-scroll-wrapper">
                 <ul class="services-scroll-list">
 
-                    @for ($i = 1; $i <= 17; $i++)
+                    @foreach($testimonial_images as $i => $image)
                         <li class="services-scroll-item">
-                            <a href="{{ asset('assets/frontend/img/reviews/' . $i . '.jpg') }}"
+                            <a href="{{ uploaded_asset($image) }}"
                                data-fancybox="album1"
                                class="d-block position-relative services-box-link">
 
                                 <div class="services_boxs">
                                     <img class="jbox-img rotate w-100"
-                                         src="{{ asset('assets/frontend/img/reviews/' . $i . '.jpg') }}"
+                                         src="{{ uploaded_asset($image) }}"
                                          alt="Review {{ $i }}">
                                 </div>
 
                             </a>
                         </li>
-                    @endfor
+                    @endforeach
 
                 </ul>
             </div>
