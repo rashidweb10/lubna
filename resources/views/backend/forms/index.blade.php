@@ -97,7 +97,15 @@
                                 <td>{{ $row->email }}</td>    
                                 <td>{{ $row->phone }}</td>
                                 @foreach ($extraColumns as $col)
-                                    <td>{{ $formData[$col] ?? '-' }}</td>
+                                    <td>
+                                        @php
+                                            $value = $formData[$col] ?? '-';
+                                            if (is_array($value) || is_object($value)) {
+                                                $value = json_encode($value);
+                                            }
+                                        @endphp
+                                        {{ $value }}
+                                    </td>
                                 @endforeach                                  
 
                                 <td>{{ formatDatetime($row->updated_at) }}</td>
