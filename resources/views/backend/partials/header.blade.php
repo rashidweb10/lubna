@@ -430,6 +430,13 @@
             </div>
             --}}
 
+            <!-- Visit Frontend Website -->
+            <div class="topbar-item d-none d-sm-flex">
+                <a href="{{ url('/') }}" class="topbar-link" target="_blank" title="Visit Frontend Website">
+                    <i class="ti ti-world fs-22"></i>
+                </a>
+            </div>            
+
             <!-- Button Trigger Customizer Offcanvas -->
             <div class="topbar-item d-none d-sm-flex">
                 <button class="topbar-link" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" type="button">
