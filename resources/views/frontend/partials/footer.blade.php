@@ -76,8 +76,8 @@
      <a class="robot_slab" data-bs-toggle="modal" data-bs-target="#earth_modal">
          
           <img class="start_icons" src="{{ asset('assets/frontend/img/stars.png') }}">
-          <img class="" src="{{ asset('assets/frontend/img/star_month_icon.jpeg') }}">
-         <span class="robot_slab "><b>Apoorva Chaturvedi </b> <span class="second_span">Star of the Month</span></span>
+          <img class="" src="{{ uploaded_asset(get_setting('sof_profile_picture')) }}">
+         <span class="robot_slab "><b>{{ get_setting('star_of_month_text') }}</b> <span class="second_span">Star of the Month</span></span>
      </a>
  </div>
  
@@ -131,8 +131,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="">
-                     <img class="w-100" src="{{ asset('assets/frontend/img/apoorva_image.jpeg') }}" />
-                    <p class="text-center font-bold fw-bold pt-3">Apoorva Chaturvedi </p>
+                     <img class="w-100" src="{{ uploaded_asset(get_setting('sof_popup_image')) }}" />
+                    <p class="text-center font-bold fw-bold pt-3">{{get_setting('star_of_month_text')}}</p>
                 </div>
             </div>
         </div>
