@@ -22,13 +22,27 @@ class FormSubmissionMail extends Mailable
     {
         $this->formName = $formName;
         $this->data = $data;
+        logger('FormSubmissionMail constructor called with data: ' . json_encode($data));
     }
 
     public function build()
     {
-        // return $this->subject(config('custom.app_name'))
-        //             ->markdown('emails.form_submission');
-        return $this->from($this->data['email'], $this->data['name'] ?? null) // set user email as from
+        logger('FormSubmissionMail build method data: ' . json_encode($this->data));
+        
+        $fromEmail = config('mail.from.address');
+        $fromName = config('mail.from.name');
+        
+        if (isset($this->data['email'])) {
+            $fromEmail = $this->data['email'];
+        }
+        
+        if (isset($this->data['name'])) {
+            $fromName = $this->data['name'];
+        }
+        
+        logger('Using from email: ' . $fromEmail . ', from name: ' . $fromName);
+        
+        return $this->from($fromEmail, $fromName)
                ->subject(config('custom.app_name'))
                ->markdown('emails.form_submission');        
     }

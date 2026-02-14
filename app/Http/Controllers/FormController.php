@@ -34,11 +34,13 @@ class FormController extends Controller
         $recipientEmail = [config('custom.to_email')];
             
         try {
+            logger('Form submission data: ' . json_encode($validatedData));
             Mail::to($recipientEmail)
                 ->send(new FormSubmissionMail($formName, $validatedData));
             logger('Mail sent successfully to: ' . json_encode($recipientEmail));
         } catch (\Exception $e) {
             logger('Mail send failed: ' . $e->getMessage());
+            logger('Exception stack trace: ' . $e->getTraceAsString());
             //dd($e->getMessage()); // or return response()->json(['error' => $e->getMessage()]);
         }    
         
