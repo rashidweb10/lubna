@@ -162,20 +162,24 @@
 
 
 
-          <form class="bmi-sidebar-form">
+          <form class="bmi-sidebar-form" id="bmiCalculatorForm" action="{{route('form.submit')}}" method="POST">
+              @csrf
+              <input type="hidden" name="form_name" value="bmi_calculator">
+              <input type="hidden" name="bmi_value" id="bmi-value-hidden">
+              <input type="hidden" name="bmi_status" id="bmi-status-hidden">
 
 
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div class="bmi-field">
                   <label for="sidebar-name">Full Name</label>
-                  <input type="text" id="sidebar-name" placeholder="Enter your full name">
+                  <input type="text" id="sidebar-name" name="name" placeholder="Enter your full name" required>
                 </div>
               </div>
               <div class="col-md-6 mb-4">
                 <div class="bmi-field">
                   <label for="sidebar-phone">Phone Number</label>
-                  <input type="tel" id="sidebar-phone" placeholder="Enter your phone number">
+                  <input type="tel" id="sidebar-phone" name="phone" placeholder="Enter your phone number" required>
                 </div>
               </div>
 
@@ -187,11 +191,11 @@
                   <label>Gender</label>
                   <div class="bmi-gender">
                     <label class="bmi-radio">
-                      <input type="radio" name="sidebar-gender" value="male">
+                      <input type="radio" name="gender" value="male">
                       <span>Male</span>
                     </label>
                     <label class="bmi-radio">
-                      <input type="radio" name="sidebar-gender" value="female">
+                      <input type="radio" name="gender" value="female">
                       <span>Female</span>
                     </label>
                   </div>
@@ -202,7 +206,7 @@
 
                 <div class="bmi-field">
                   <label for="sidebar-age">Age</label>
-                  <input type="number" id="sidebar-age" placeholder="Age">
+                  <input type="number" id="sidebar-age" name="age" placeholder="Age">
                 </div>
 
 
@@ -211,7 +215,7 @@
 
                 <div class="bmi-field">
                   <label for="sidebar-weight">Weight (kg)</label>
-                  <input type="number" id="sidebar-weight" placeholder="Weight">
+                  <input type="number" id="sidebar-weight" name="weight" placeholder="Weight">
                 </div>
 
               </div>
@@ -219,7 +223,7 @@
               <div class="col-md-3 col-12 mb-md-0 mb-3">
                 <div class="bmi-field">
                   <label for="sidebar-height">Height (cm)</label>
-                  <input type="number" id="sidebar-height" placeholder="Height in cm">
+                  <input type="number" id="sidebar-height" name="height" placeholder="Height in cm">
                 </div>
               </div>
               <!-- Height -->
@@ -232,42 +236,42 @@
                 <label>Medical History</label>
                 <div class="medical-history-checkboxes">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-hypertension" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-hypertension" name="medical_history[]"
                       value="Hypertension/ High BP">
                     <label class="form-check-label" for="medical-hypertension">Hypertension/ High BP</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-diabetes" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-diabetes" name="medical_history[]"
                       value="Diabetes">
                     <label class="form-check-label" for="medical-diabetes">Diabetes</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-arthritis" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-arthritis" name="medical_history[]"
                       value="Arthritis / Joint Pain">
                     <label class="form-check-label" for="medical-arthritis">Arthritis / Joint Pain</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-pcod" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-pcod" name="medical_history[]"
                       value="PCOD / PCOS">
                     <label class="form-check-label" for="medical-pcod">PCOD / PCOS</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-weightloss" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-weightloss" name="medical_history[]"
                       value="No Disease Only Weight Loss">
                     <label class="form-check-label" for="medical-weightloss">No Disease Only Weight Loss</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-thyroid" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-thyroid" name="medical_history[]"
                       value="Thyroid Disorder">
                     <label class="form-check-label" for="medical-thyroid">Thyroid Disorder</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-heart" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-heart" name="medical_history[]"
                       value="Heart Disease">
                     <label class="form-check-label" for="medical-heart">Heart Disease</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="medical-liver" name="medical-history"
+                    <input class="form-check-input" type="checkbox" id="medical-liver" name="medical_history[]"
                       value="Fatty Liver">
                     <label class="form-check-label" for="medical-liver">Fatty Liver</label>
                   </div>
@@ -275,7 +279,7 @@
                 </div>
                 <div class="medical-other-textarea mt-3">
                   <label for="medical-other-specify">Other Specify:</label>
-                  <textarea class="form-control" id="medical-other-specify" rows="3"
+                  <textarea class="form-control" id="medical-other-specify" name="medical_other" rows="3"
                     placeholder="Please specify your medical condition..."></textarea>
                 </div>
               </div>

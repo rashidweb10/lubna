@@ -67,6 +67,22 @@ class FormController extends Controller
                     'course_category'  => 'nullable|string|max:150',
                 ];
 
+            case 'bmi_calculator':
+                return [
+                    'form_name' => 'required|max:20',
+                    'name' => 'required|string|max:50',
+                    'phone' => 'nullable|digits_between:10,15|max:50',
+                    'email' => 'nullable|email|max:50',
+                    'gender' => 'nullable|string|max:10',
+                    'age' => 'nullable|numeric|min:1|max:120',
+                    'weight' => 'nullable|numeric|min:1|max:300',
+                    'height' => 'nullable|numeric|min:1|max:300',
+                    'medical_history' => 'nullable|array',
+                    'medical_other' => 'nullable|string|max:255',
+                    'bmi_value' => 'nullable|numeric',
+                    'bmi_status' => 'nullable|string|max:50'
+                ];
+
             default:
                 return [
                     'form_name' => 'required|max:20',

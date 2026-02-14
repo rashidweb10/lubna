@@ -578,18 +578,18 @@ if (closeBtn) {
 
         let bmiFormData = {};
 
-        /* ================= CALCULATE BMI ================= */
+         /* ================= CALCULATE BMI ================= */
         $('.bmi-calculate-btn').on('click', function () {
 
           let name = $('#sidebar-name').val().trim();
           let phone = $('#sidebar-phone').val().trim();
-          let gender = $('input[name="sidebar-gender"]:checked').val();
+          let gender = $('input[name="gender"]:checked').val();
           let age = parseInt($('#sidebar-age').val());
           let weight = parseFloat($('#sidebar-weight').val());
           let heightCm = parseFloat($('#sidebar-height').val());
 
           let medicalHistory = [];
-          $('input[name="medical-history"]:checked').each(function () {
+          $('input[name="medical_history[]"]:checked').each(function () {
             medicalHistory.push($(this).val());
           });
 
@@ -641,7 +641,7 @@ if (closeBtn) {
             status = 'Obese';
           }
 
-          /* -------- SHOW RESULT -------- */
+           /* -------- SHOW RESULT -------- */
           $('#bmi-value').html(bmi);
           $('#bmi-status').text(status);
           $('.bmi-result').fadeIn();
@@ -649,19 +649,9 @@ if (closeBtn) {
           $('.bmi-calculate-btn').hide();
           //$('.bmi-reset-btn').show();
 
-          /* -------- STORE DATA FOR YES BUTTON -------- */
-          bmiFormData = {
-            name: name,
-            phone: phone,
-            gender: gender,
-            age: age,
-            weight: weight,
-            height_cm: heightCm,
-            bmi: bmi,
-            bmi_status: status,
-            medical_history: medicalHistory.join(', '),
-            medical_other: medicalOther
-          };
+          /* -------- STORE BMI VALUES IN HIDDEN FIELDS -------- */
+          $('#bmi-value-hidden').val(bmi);
+          $('#bmi-status-hidden').val(status);
 
           /* -------- SHOW CONSULTATION OPTIONS -------- */
           $('.bmi-consultation').fadeIn();
@@ -688,8 +678,12 @@ if (closeBtn) {
 
         // });
 
-        $('#consult-yes').on('click', function () {
+       
 
+
+
+        /* ================= YES → SEND EMAIL VIA AJAX ================= */
+        $('#consult-yes').on('click', function () {
           let $btn = $(this);
 
           // Prevent double click
@@ -706,35 +700,36 @@ if (closeBtn) {
           // Reduce opacity
           $('.bmi-consultation').css('opacity', '0.5');
 
-          $.ajax({
-            url: 'https://formspree.io/f/mojvnrjy',
-            method: 'POST',
-            dataType: 'json',
-            data: bmiFormData,
+          // Get reCAPTCHA token
+          grecaptcha.ready(function () {
+            grecaptcha.execute('{{ config('custom.recaptcha_site_key') }}', { action: 'bmi_calculator' }).then(function (token) {
+              // Get form data
+              let formData = $('#bmiCalculatorForm').serialize() + '&recaptcha_token=' + token + '&recaptcha_action=bmi_calculator';
 
-            success: function () {
-              alert('Thanks you, we received your info and we will call you soon!');
-              $('.bmi-consultation').hide();
-              $('.bmi-reset-btn').click();
-            },
+              $.ajax({
+                url: '{{ route('form.submit') }}',
+                method: 'POST',
+                data: formData,
+                success: function (response) {
+                  alert('Thank you, we received your info and we will call you soon!');
+                  $('.bmi-consultation').hide();
+                  $('.bmi-reset-btn').click();
+                },
+                error: function (xhr) {
+                  alert('Something went wrong. Please try again.');
+                },
+                complete: function () {
+                  // Restore button & UI
+                  $btn.prop('disabled', false)
+                    .css('pointer-events', '')
+                    .html(originalHtml);
 
-            error: function () {
-              alert('Something went wrong. Please try again.');
-            },
-
-            complete: function () {
-              // Restore button & UI
-              $btn.prop('disabled', false)
-                .css('pointer-events', '')
-                .html(originalHtml);
-
-              $('.bmi-consultation').css('opacity', '1');
-            }
+                  $('.bmi-consultation').css('opacity', '1');
+                }
+              });
+            });
           });
-
         });
-
-
 
         /* ================= NO → DO NOT SEND ================= */
         $('#consult-no').on('click', function () {
