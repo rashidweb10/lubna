@@ -46,10 +46,11 @@ class FormController extends Controller
         }        
 
         if ($search) {
-            $query->where('form_name', 'like', '%' . $request->search . '%')
-                  ->orWhere('name', 'like', '%' . $request->search . '%')
-                  ->orWhere('email', 'like', '%' . $request->search . '%')
-                  ->orWhere('ip', 'like', '%' . $request->search . '%');
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%')
+                  ->orWhere('email', 'like', '%' . $search . '%')
+                  ->orWhere('phone', 'like', '%' . $search . '%');
+            });
         }
 
         $pageData = $query->orderBy('created_at', 'desc')->paginate(config('custom.pagination_per_page'));
