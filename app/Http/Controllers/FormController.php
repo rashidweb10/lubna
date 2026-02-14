@@ -31,7 +31,7 @@ class FormController extends Controller
         ]);
 
         //$recipientEmail = ['rashidk.developer@gmail.com'];
-        $recipientEmail = [config('custom.from_email')];
+        $recipientEmail = [config('custom.to_email')];
             
         try {
             Mail::to($recipientEmail)
