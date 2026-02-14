@@ -16,6 +16,42 @@
     $about_school_description = $pageData->meta->where('meta_key', 'about_school_description')->first()->meta_value ?? '';
 
     $testimonial_images = explode(',', $pageData->meta->where('meta_key', 'testimonial_images')->first()->meta_value ?? []);
+    
+    // Fetch services from services page
+    $servicesPage = \App\Models\Page::with('meta')->where('is_active', 1)
+        ->where('slug', 'services')
+        ->first();
+    $servicesData = json_decode($servicesPage->meta->where('meta_key', 'services')->first()->meta_value ?? '{"itration": []}', true);
+    
+    // Prepare services for display
+    $services = [];
+    $bgClasses = ['virtual-bg1', 'virtual-bg2', 'virtual-bg3', 'virtual-bg4', 'virtual-bg5', 'virtual-bg6'];
+    if(isset($servicesData['itration']) && is_array($servicesData['itration'])) {
+        foreach($servicesData['itration'] as $index => $iteration) {
+            $serviceName = $servicesData['name'][$index] ?? 'Service';
+            $slug = strtolower(str_replace(' ', '-', $serviceName));
+            $serviceImage = $servicesData['image'][$index];
+            
+            // Split service name into two parts for display
+            $nameParts = explode(' ', $serviceName);
+            if(count($nameParts) <= 2) {
+                $name1 = $serviceName;
+                $name2 = '';
+            } else {
+                $splitIndex = ceil(count($nameParts) / 2);
+                $name1 = implode(' ', array_slice($nameParts, 0, $splitIndex));
+                $name2 = implode(' ', array_slice($nameParts, $splitIndex));
+            }
+            
+            $services[] = [
+                'slug' => '#' . $slug,
+                'bgClass' => $bgClasses[$index % count($bgClasses)],
+                'name1' => $name1,
+                'name2' => $name2,
+                'image' => $serviceImage,
+            ];
+        }
+    }
 @endphp
 
 <style>
@@ -36,10 +72,10 @@
 
         <div class="carousel-inner">
             @foreach($banner_images as $i => $image)
-                <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+                <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
                     <img src="{{ uploaded_asset($image) }}"
                          class="banner_zoom d-block w-100 banner-img"
-                         alt="Banner {{ $i }}">
+                         alt="Banner {{ $i + 1 }}">
                 </div>
             @endforeach
         </div>
@@ -70,10 +106,10 @@
 
         <div class="carousel-inner">
             @foreach($banner_images as $i => $image)
-                <div class="carousel-item {{ $i == 1 ? 'active' : '' }}">
+                <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
                     <img src="{{ uploaded_asset($image) }}"
                          class="banner_zoom d-block w-100 banner-img"
-                         alt="Mobile Banner {{ $i }}">
+                         alt="Mobile Banner {{ $i + 1 }}">
                 </div>
             @endforeach
         </div>
@@ -120,6 +156,7 @@
     <!-- =======================
         Services Section
     ======================== -->
+    @if(!empty($services) && count($services) > 0)
     <section class="services_sections padding70px">
 
         <div class="text-center">
@@ -131,27 +168,16 @@
              data-aos="fade-up"
              data-aos-duration="8000">
 
-            @php
-                $services = [
-                    ['#sculpting', 'virtual-bg1', 'Body Sculpting &', 'Functional Conditioning'],
-                    ['#program', 'virtual-bg2', 'Fat Loss', 'Program'],
-                    ['#mental', 'virtual-bg3', 'Mental Wellness', 'Coaching'],
-                    ['#nutrition', 'virtual-bg4', 'Nutrition', 'Diet Plan'],
-                    ['#rehabilitation', 'virtual-bg5', 'Rehabilitation', 'Coaching'],
-                    ['#aesthetic', 'virtual-bg6', 'Aesthetic Wellness', 'Program'],
-                ];
-            @endphp
-
             @foreach ($services as $service)
                 <div class="item">
                     <div class="shadow-effect">
-                        <a href="/our-services.php{{ $service[0] }}">
-                            <div class="service-card {{ $service[1] }}">
+                        <a href="{{ url('services') }}{{ $service['slug'] }}">
+                            <div class="service-card" style="background: url({{ uploaded_asset($service['image']) }});">
                                 <div class="text-box">
                                     <p class="first-text">FS @ Lubna Rahman</p>
                                     <h2>
-                                        {{ $service[2] }}
-                                        <span>{{ $service[3] }}</span>
+                                        {{ $service['name1'] }}
+                                        <span>{{ $service['name2'] }}</span>
                                     </h2>
                                 </div>
                             </div>
@@ -162,6 +188,7 @@
 
         </div>
     </section>
+    @endif
 
     <!-- =======================
         About School Section
